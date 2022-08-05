@@ -1,3 +1,18 @@
+section {
+  padding: 2.5rem;
+  margin: 2.5rem;
+}
+
+.section {
+  &--cocktail {
+    background-color: var(--maximum-yellow-red);
+  }
+
+  &--food {
+    background-color: var(--tiffany-blue);
+  }
+}
+
 dl {
   display: grid;
   grid-template-columns: 1fr 80%;
