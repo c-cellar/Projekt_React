@@ -8,7 +8,9 @@ export default function Cocktail() {
   const [drinks, setDrinks] = useState([]);
   const [selectedDrinks, setSelectedDrinks] = useState('alcoholic');
   const [randomDrink, setRandomDrink] = useState({});
+  const [drinkDetails, setDrinkDetails] = useState({});
 
+  // Get the options of non alcoholic, alcoholic or optional alcohol
   useEffect(() => {
     async function fetchDrinks() {
       try {
@@ -30,8 +32,9 @@ export default function Cocktail() {
     fetchDrinks();
   }, []);
 
+  // get one random drink out of the list of cocktails
   useEffect(() => {
-    async function fetchDrinksSelection() {
+    async function fetchDrinksBySelection() {
       try {
         const clearSelection = selectedDrinks.replace(' ', '_');
 
@@ -52,8 +55,31 @@ export default function Cocktail() {
         console.log(error);
       }
     }
-    fetchDrinksSelection();
+    fetchDrinksBySelection();
   }, [selectedDrinks]);
+
+  // get the random Cocktail by Id for details
+  useEffect(() => {
+    async function fetchCocktailById() {
+      try {
+        const response = await fetch(
+          `${cocktailUrl}lookup.php?i=${randomDrink.idDrink}`
+        );
+
+        if (!response.ok) {
+          throw new Error('Details konnten nicht geladen werden');
+        }
+
+        const jsonData = await response.json();
+        console.log(jsonData.drinks[0]);
+        const cocktailDetails = jsonData.drinks[0];
+        setDrinkDetails(cocktailDetails);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCocktailById();
+  }, [randomDrink]);
 
   return (
     <div>
@@ -71,7 +97,7 @@ export default function Cocktail() {
             </option>
           ))}
         </select>
-        <RandomCocktail randomDrink={randomDrink} cocktailUrl={cocktailUrl} />
+        <RandomCocktail randomDrink={randomDrink} drinkDetails={drinkDetails} />
       </section>
     </div>
   );
