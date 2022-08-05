@@ -1,9 +1,15 @@
 @use 'colors';
 @use 'normalize';
+@use 'layout';
 
 * {
   font-family: sans-serif;
   background-color: var(--floral-white);
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
 }
 
 h1,

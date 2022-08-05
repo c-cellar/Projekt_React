@@ -1,0 +1,13 @@
+dl {
+  display: grid;
+  grid-template-columns: 1fr 80%;
+}
+
+dd {
+  margin: 0;
+  padding-left: 1em;
+}
+
+dl dd {
+  margin-bottom: 1em;
+}
