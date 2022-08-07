@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 
 // const apiKey = process.env.NEWS_API_KEY;
 // const apiKey = '812d3fb83a5342979f1847b5249ae47c';
 // example Url = https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true
 
-const foodUrl = 'https://api.spoonacular.com/recipes/random?number=1&tags=';
-let tags = [];
+const foodUrl =
+  'https://api.spoonacular.com/recipes/random?apiKey=812d3fb83a5342979f1847b5249ae47c&number=1&tags=';
 
 export default function Food() {
-  const [searchTags, setSearchTags] = useState([]);
-  const [recipe, setRecipe] = useState({});
+  const [searchTags, setSearchTags] = useReducer(createSearchTag, []);
+  // const [recipe, setRecipe] = useState({});
+
+  console.log(searchTags);
 
   //   useEffect(() => {
   //     async function fetchRecipe() {
@@ -488,17 +490,15 @@ export default function Food() {
   );
 }
 
-function createSearchTag(checked, value) {
-  console.log(checked);
-  console.log(value);
+function createSearchTag(searchTags, message) {
+  console.log(searchTags);
 
-  if (checked) {
-    tags.push(value);
-    console.log(tags);
-    return;
+  switch (message.checked) {
+    case true:
+      console.log('Wert wird hinzugefügt');
+      return [...searchTags, message.value];
+    case false:
+      console.log('Wert wird aus array entfernt');
+      return searchTags.filter((tag) => tag !== message.value);
   }
-
-  tags = tags.filter((tag) => tag !== value);
-  console.log(tags);
-  return;
 }
