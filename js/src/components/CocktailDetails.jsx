@@ -25,7 +25,7 @@ export default function CocktailDetails({ drinkDetails }) {
 
   return (
     <div>
-      <h4>Ingrediants</h4>
+      {strIngredient1 && <h4>Ingrediants</h4>}
       <dl>
         {strIngredient1 && <dt>{strIngredient1}</dt>}
         {strMeasure1 && <dd>{strMeasure1}</dd>}
