@@ -13,6 +13,10 @@ section {
   }
 }
 
+img {
+  border: solid 2rem var(--floral-white);
+}
+
 dl {
   display: grid;
   grid-template-columns: 1fr 80%;
