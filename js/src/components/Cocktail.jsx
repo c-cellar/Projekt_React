@@ -6,7 +6,7 @@ const cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
 export default function Cocktail() {
   const [drinks, setDrinks] = useState([]);
-  const [selectedDrinks, setSelectedDrinks] = useState('alcoholic');
+  const [selectedDrinks, setSelectedDrinks] = useState('');
   const [randomDrink, setRandomDrink] = useState({});
   const [drinkDetails, setDrinkDetails] = useState({});
 
@@ -71,7 +71,7 @@ export default function Cocktail() {
         }
 
         const jsonData = await response.json();
-        console.log(jsonData.drinks[0]);
+        // console.log(jsonData.drinks[0]);
         const cocktailDetails = jsonData.drinks[0];
         setDrinkDetails(cocktailDetails);
       } catch (error) {
@@ -83,7 +83,7 @@ export default function Cocktail() {
 
   return (
     <div>
-      <section>
+      <section className="section--cocktail">
         <h2>Cocktail</h2>
         <label htmlFor="withOrWithout">alcoholic or non alcoholic</label>
         <select
@@ -98,6 +98,7 @@ export default function Cocktail() {
           ))}
         </select>
         <RandomCocktail randomDrink={randomDrink} drinkDetails={drinkDetails} />
+        <button>get a cocktail</button>
       </section>
     </div>
   );
