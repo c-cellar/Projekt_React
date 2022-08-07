@@ -7,7 +7,7 @@ export default function RandomCocktail({ randomDrink, drinkDetails }) {
   return (
     <article>
       <h3>{cocktailName}</h3>
-      <img src={cocktailPicture} alt="Cocktail" />
+      {cocktailPicture && <img src={cocktailPicture} alt="Cocktail" />}
       <CocktailDetails drinkDetails={drinkDetails} />
     </article>
   );
