@@ -13,8 +13,14 @@ section {
   }
 }
 
-img {
+.image--details {
   border: solid 2rem var(--floral-white);
+}
+
+.image--icon {
+  max-width: 2.5rem;
+  max-height: auto;
+  margin-right: 1rem;
 }
 
 dl {
@@ -33,4 +39,11 @@ dl dd {
 
 .dl--food {
   grid-template-columns: 1fr 1fr;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: var(--light-coral);
+  border: solid 2px var(--floral-white);
+  color: var(--floral-white);
 }
