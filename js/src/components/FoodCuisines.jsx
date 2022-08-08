@@ -58,20 +58,6 @@ export default function FoodCuisines({ setSearchTags }) {
           }
         />
       </label>
-      <label htmlFor="caribbean">
-        Caribbean
-        <input
-          type="checkbox"
-          id="caribbean"
-          value="caribbean"
-          onChange={(e) =>
-            setSearchTags({
-              checked: e.currentTarget.checked,
-              value: e.currentTarget.value,
-            })
-          }
-        />
-      </label>
       <label htmlFor="chinese">
         Chinese
         <input
@@ -184,20 +170,6 @@ export default function FoodCuisines({ setSearchTags }) {
           }
         />
       </label>
-      <label htmlFor="japanese">
-        Japanese
-        <input
-          type="checkbox"
-          id="japanese"
-          value="japanese"
-          onChange={(e) =>
-            setSearchTags({
-              checked: e.currentTarget.checked,
-              value: e.currentTarget.value,
-            })
-          }
-        />
-      </label>
       <label htmlFor="jewish">
         Jewish
         <input
@@ -254,40 +226,12 @@ export default function FoodCuisines({ setSearchTags }) {
           }
         />
       </label>
-      <label htmlFor="mexican">
-        Mexican
-        <input
-          type="checkbox"
-          id="mexican"
-          value="mexican"
-          onChange={(e) =>
-            setSearchTags({
-              checked: e.currentTarget.checked,
-              value: e.currentTarget.value,
-            })
-          }
-        />
-      </label>
       <label htmlFor="middle eastern">
         Middle Eastern
         <input
           type="checkbox"
           id="middle eastern"
           value="middle eastern"
-          onChange={(e) =>
-            setSearchTags({
-              checked: e.currentTarget.checked,
-              value: e.currentTarget.value,
-            })
-          }
-        />
-      </label>
-      <label htmlFor="nordic">
-        Nordic
-        <input
-          type="checkbox"
-          id="nordic"
-          value="nordic"
           onChange={(e) =>
             setSearchTags({
               checked: e.currentTarget.checked,
