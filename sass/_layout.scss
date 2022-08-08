@@ -11,16 +11,25 @@ section {
   &--food {
     background-color: var(--tiffany-blue);
   }
+
+  &--movie {
+    background-color: var(--cg-blue);
+  }
 }
 
 .image--details {
+  max-width: 80%;
   border: solid 2rem var(--floral-white);
 }
 
 .image--icon {
-  max-width: 2.5rem;
+  max-width: 3rem;
   max-height: auto;
   margin-right: 1rem;
+  border: solid 1px var(--floral-white);
+  border-radius: 1rem;
+  background-color: var(--floral-white);
+  padding: 0.35rem;
 }
 
 dl {
@@ -42,8 +51,9 @@ dl dd {
 }
 
 button {
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: var(--light-coral);
   border: solid 2px var(--floral-white);
   color: var(--floral-white);
+  border-radius: 1rem;
 }
