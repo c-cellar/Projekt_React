@@ -30,6 +30,20 @@ export default function FoodDiet({ setSearchTags }) {
           }
         />
       </label>
+      <label htmlFor="lacto ovo vegetarian">
+        lacto ovo vegetarian
+        <input
+          type="checkbox"
+          id="lacto ovo vegetarian"
+          value="lacto ovo vegetarian"
+          onChange={(e) =>
+            setSearchTags({
+              checked: e.currentTarget.checked,
+              value: e.currentTarget.value,
+            })
+          }
+        />
+      </label>
       <label htmlFor="pescetarian">
         pescetarian
         <input
