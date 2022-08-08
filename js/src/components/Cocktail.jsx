@@ -32,8 +32,8 @@ export default function Cocktail() {
     fetchDrinks();
   }, []);
 
-  // get one random drink out of the list of cocktails
-  useEffect(() => {
+  // get one random drink onClick
+  function getACocktail() {
     async function fetchDrinksBySelection() {
       try {
         const clearSelection = selectedDrinks.replace(' ', '_');
@@ -56,7 +56,7 @@ export default function Cocktail() {
       }
     }
     fetchDrinksBySelection();
-  }, [selectedDrinks]);
+  }
 
   // get the random Cocktail by Id for details
   useEffect(() => {
@@ -98,8 +98,34 @@ export default function Cocktail() {
           ))}
         </select>
         <RandomCocktail randomDrink={randomDrink} drinkDetails={drinkDetails} />
-        <button>get a cocktail</button>
+        <button onClick={getACocktail}>get a cocktail</button>
       </section>
     </div>
   );
 }
+
+// // get one random drink out of the list of cocktails
+// useEffect(() => {
+//   async function fetchDrinksBySelection() {
+//     try {
+//       const clearSelection = selectedDrinks.replace(' ', '_');
+
+//       const response = await fetch(
+//         `${cocktailUrl}filter.php?a=${clearSelection}`
+//       );
+
+//       if (!response.ok) {
+//         throw new Error('Fehler beim Laden der Cocktails');
+//       }
+
+//       const jsonData = await response.json();
+//       // console.log('Anzahl der Cocktails:' + jsonData.drinks.length);
+//       const getRandomNumber = randomNumber(jsonData.drinks.length);
+
+//       setRandomDrink(jsonData.drinks[getRandomNumber]);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+//   fetchDrinksBySelection();
+// }, [selectedDrinks]);
