@@ -30,3 +30,7 @@ dd {
 dl dd {
   margin-bottom: 1em;
 }
+
+.dl--food {
+  grid-template-columns: 1fr 1fr;
+}
