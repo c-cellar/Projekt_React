@@ -88,6 +88,8 @@ a {
 }
 
 .p--inputs {
+  grid-column-start: 1;
+  grid-column-end: 7;
   color: var(--onyx);
   font-weight: bold;
 }

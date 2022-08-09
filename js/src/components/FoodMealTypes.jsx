@@ -1,6 +1,6 @@
 export default function FoodMealTypes({ setSearchTags }) {
   return (
-    <div>
+    <div className="container container--mealTypes">
       <p className="p--inputs">Select a kind of meal</p>
       <label htmlFor="main course">
         main course
