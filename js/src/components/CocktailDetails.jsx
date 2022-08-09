@@ -1,4 +1,5 @@
-export default function CocktailDetails({ drinkDetails }) {
+export default function CocktailDetails({ drinkDetails, randomDrink }) {
+  const { strDrink: cocktailName } = randomDrink;
   const {
     strInstructions,
     strIngredient1,
@@ -24,7 +25,8 @@ export default function CocktailDetails({ drinkDetails }) {
   } = drinkDetails;
 
   return (
-    <div>
+    <div className="selectionDetails">
+      <h3>{cocktailName}</h3>
       {strIngredient1 && <h4>Ingrediants</h4>}
       <dl>
         {strIngredient1 && <dt>{strIngredient1}</dt>}

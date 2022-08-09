@@ -1,37 +1,3 @@
-section {
-  padding: 2.5rem;
-  margin: 2.5rem;
-}
-
-.section {
-  &--cocktail {
-    background-color: var(--maximum-yellow-red);
-  }
-
-  &--food {
-    background-color: var(--tiffany-blue);
-  }
-
-  &--movie {
-    background-color: var(--cg-blue);
-  }
-}
-
-.image--details {
-  max-width: 80%;
-  border: solid 2rem var(--floral-white);
-}
-
-.image--icon {
-  max-width: 3rem;
-  max-height: auto;
-  margin-right: 1rem;
-  border: solid 1px var(--floral-white);
-  border-radius: 1rem;
-  background-color: var(--floral-white);
-  padding: 0.35rem;
-}
-
 dl {
   display: grid;
   grid-template-columns: 1fr 80%;
@@ -50,10 +16,15 @@ dl dd {
   grid-template-columns: 1fr 1fr;
 }
 
-button {
-  padding: 1rem;
-  background-color: var(--light-coral);
-  border: solid 2px var(--floral-white);
-  color: var(--floral-white);
-  border-radius: 1rem;
+.dl--ratings {
+  display: grid;
+  grid-template-columns: 1fr 70%;
+}
+
+label {
+  margin-right: 1rem;
+}
+
+input {
+  margin-left: 0.25rem;
 }

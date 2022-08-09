@@ -1,22 +1,63 @@
 @use 'colors';
 @use 'normalize';
 @use 'layout';
+@use 'viewSelection';
+@use 'images';
+@use 'section';
+@use 'button';
 
 * {
   font-family: sans-serif;
 }
 
 body {
-  width: 90%;
+  width: 75%;
   margin: 2.5rem auto;
   background-color: var(--floral-white);
 }
 
-h1,
-h2,
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--light-coral);
+}
+
+h2 {
+  color: var(--floral-white);
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0px;
+}
 h3,
 h4,
 h5,
 h6 {
   color: var(--onyx);
+}
+
+select {
+  background-color: var(--floral-white);
+  padding: 0.5rem;
+  border: none;
+}
+
+.no-recipe--notification {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+a,
+button,
+select,
+input,
+label {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
 }

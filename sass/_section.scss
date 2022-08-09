@@ -1,0 +1,19 @@
+section {
+  padding: 2.5rem;
+  margin: 2.5rem;
+  border-radius: 2.5rem;
+}
+
+.section {
+  &--cocktail {
+    background-color: var(--maximum-yellow-red);
+  }
+
+  &--food {
+    background-color: var(--tiffany-blue);
+  }
+
+  &--movie {
+    background-color: var(--cg-blue);
+  }
+}

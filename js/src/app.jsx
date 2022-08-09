@@ -3,4 +3,4 @@ import EntryComponent from './components/EntryComponent';
 
 const root = createRoot(document.querySelector('#app'));
 
-root.render(<EntryComponent title="Random your off day" />);
+root.render(<EntryComponent title="Just Random" />);

@@ -58,10 +58,12 @@ export default function Food() {
         {recipe ? (
           <RandomFood recipe={recipe} />
         ) : (
-          <p>
-            <strong>Sorry!!</strong> <br /> No recipe was found! Please change
-            your selections.
-          </p>
+          <div className="no-recipe--notification">
+            <p>
+              <strong>Sorry!!</strong> <br /> No recipe was found! Please change
+              your selections.
+            </p>
+          </div>
         )}
         <div>
           <button onClick={fetchQuery}>get a meal</button>

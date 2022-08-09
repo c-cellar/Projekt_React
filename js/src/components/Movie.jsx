@@ -31,7 +31,7 @@ export default function Movie() {
     <div>
       <section className="section--movie">
         <h2>Movie</h2>
-        {movieDetails && <RandomMovie movieDetails={movieDetails} />}
+        <RandomMovie movieDetails={movieDetails} />
         <button onClick={getRandomMovieFromArray}>get a film</button>
       </section>
     </div>

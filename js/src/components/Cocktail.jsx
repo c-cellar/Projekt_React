@@ -85,7 +85,7 @@ export default function Cocktail() {
     <div>
       <section className="section--cocktail">
         <h2>Cocktail</h2>
-        <label htmlFor="withOrWithout">alcoholic or non alcoholic</label>
+        <label htmlFor="withOrWithout">Choose your kind of drink</label>
         <select
           id="withOrWithout"
           value={selectedDrinks}
