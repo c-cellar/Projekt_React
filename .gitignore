@@ -1,10 +1,6 @@
 node_modules
 .parcel-cache
 
-# folder with generated files
-# css
-# temp 
-
 # generated files
 css/style.css
 js/dist/app.js
