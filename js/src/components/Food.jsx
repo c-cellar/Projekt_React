@@ -18,7 +18,7 @@ export default function Food() {
   const [searchTags, setSearchTags] = useReducer(createSearchTag, []);
   const [recipe, setRecipe] = useState([]);
 
-  console.log(recipe.length);
+  console.log(recipe);
 
   function fetchQuery() {
     async function fetchRecipe() {
@@ -68,7 +68,8 @@ export default function Food() {
         )}
         <div className="button--container">
           <button onClick={fetchQuery}>
-            {recipe.length == 0 ? 'get a meal' : 'roll again'}
+            {recipe ? 'get a meal' : 'roll again'}
+            {/* get a meal */}
           </button>
         </div>
       </section>
