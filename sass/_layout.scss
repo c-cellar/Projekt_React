@@ -8,6 +8,11 @@ dd {
   padding-left: 1em;
 }
 
+dt {
+  color: var(--onyx);
+  font-weight: bold;
+}
+
 dl dd {
   margin-bottom: 1em;
 }
@@ -18,7 +23,7 @@ dl dd {
 
 .dl--ratings {
   display: grid;
-  grid-template-columns: 1fr 70%;
+  grid-template-columns: 1fr 60%;
 }
 
 label {

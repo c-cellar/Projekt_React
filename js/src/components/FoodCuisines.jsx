@@ -1,7 +1,9 @@
 export default function FoodCuisines({ setSearchTags }) {
   return (
     <div>
-      <p>Select a prefered cuisine (none for no preferation)</p>
+      <p className="p--inputs">
+        Select a prefered cuisine (none for no preferation)
+      </p>
       <label htmlFor="african">
         African
         <input

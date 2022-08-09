@@ -37,7 +37,7 @@ export default function FoodDetails({ recipe }) {
       <dl className="dl--food">
         {extendedIngredients &&
           extendedIngredients.map(({ name, id, amount }) => (
-            <dt key={[id, amount]}>{name}</dt>
+            <dd key={[id, amount]}>{name}</dd>
           ))}
       </dl>
       {spoonacularSourceUrl && (

@@ -30,9 +30,15 @@ export default function Movie() {
   return (
     <div>
       <section className="section--movie">
-        <h2>Movie</h2>
+        <h2>
+          <span className="h2--movie">Movie</span>
+        </h2>
         <RandomMovie movieDetails={movieDetails} />
-        <button onClick={getRandomMovieFromArray}>get a film</button>
+        <div className="button--container">
+          <button onClick={getRandomMovieFromArray}>
+            {movieDetails == 0 ? 'get a film' : 'roll again'}
+          </button>
+        </div>
       </section>
     </div>
   );

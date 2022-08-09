@@ -16,10 +16,9 @@ const foodUrl =
 
 export default function Food() {
   const [searchTags, setSearchTags] = useReducer(createSearchTag, []);
-  const [recipe, setRecipe] = useState({});
+  const [recipe, setRecipe] = useState([]);
 
-  console.log(searchTags);
-  console.log(recipe);
+  console.log(recipe.length);
 
   function fetchQuery() {
     async function fetchRecipe() {
@@ -48,7 +47,9 @@ export default function Food() {
   return (
     <div>
       <section className="section--food">
-        <h2>Food</h2>
+        <h2>
+          <span className="h2--food">Food</span>
+        </h2>
         {/* Diet */}
         <FoodDiet setSearchTags={setSearchTags} />
         {/* Meal Types */}
@@ -65,8 +66,10 @@ export default function Food() {
             </p>
           </div>
         )}
-        <div>
-          <button onClick={fetchQuery}>get a meal</button>
+        <div className="button--container">
+          <button onClick={fetchQuery}>
+            {recipe.length == 0 ? 'get a meal' : 'roll again'}
+          </button>
         </div>
       </section>
     </div>
@@ -83,27 +86,3 @@ function createSearchTag(searchTags, message) {
       return searchTags.filter((tag) => tag !== message.value);
   }
 }
-
-/*  useEffect(() => {
-    async function fetchRecipe() {
-      const query = searchTags.join(',');
-
-      console.log(query);
-      try {
-        const response = await fetch(`${foodUrl}${query}`);
-
-        console.log(response);
-        if (!response.ok) {
-          throw new Error('Couldnt load recipe');
-        }
-
-        const jsonData = await response.json();
-        console.log(jsonData.recipes[0]);
-
-        setRecipe(jsonData.recipes[0]);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchRecipe();
-  }, [searchTags]); */
