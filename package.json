@@ -1,4 +1,7 @@
 {
+  "name": "just_random",
+  "version": "1.0.0",
+  "description": "planner for a random evening",
   "scripts": {
     "dev": "npm-run-all --parallel server sass-dev postcss-dev parcel-dev",
     "build": "npm-run-all --sequential clean sass-build postcss-build",
@@ -10,6 +13,10 @@
     "parcel-dev": "parcel watch js/src/app.jsx --dist-dir js/dist",
     "parcel-build": "parcel build js/src/app.jsx --dist-dir js/dist",
     "clean": "del-cli js/dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c-cellar/just_random"
   },
   "devDependencies": {
     "browser-sync": "^2.27.10",
