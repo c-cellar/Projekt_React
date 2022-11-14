@@ -3,7 +3,7 @@ import { randomNumber } from '../helpers';
 import { useState } from 'react';
 import RandomMovie from './RandomMovie';
 
-const OMDd = 'http://www.omdbapi.com/?apikey=1d847164';
+const OMDd = 'https://www.omdbapi.com/?apikey=1d847164';
 
 export default function Movie() {
   const [movieDetails, setMovieDetails] = useState([]);
