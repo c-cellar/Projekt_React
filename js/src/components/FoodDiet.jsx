@@ -1,6 +1,6 @@
 export default function FoodDiet({ setSearchTags }) {
   return (
-    <div className="container--diet">
+    <div className="container container--diet">
       <p className="p--inputs">
         Select your kind of diet (select none for no diet)
       </p>
