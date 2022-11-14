@@ -8,3 +8,9 @@
 .selectionDetails {
   align-self: center;
 }
+
+@media screen and (max-width: 811px) {
+  .view--randomSelection {
+    display: block;
+  }
+}
