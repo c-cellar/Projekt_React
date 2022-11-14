@@ -8,15 +8,18 @@
   padding: 0.35rem;
 }
 
-@media screen and (min-width: 640px) {
-  .icons {
-    grid-column-start: 2;
-  }
+.image--details {
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  border: solid 2rem var(--floral-white);
+}
 
+@media screen and (max-width: 640px) {
   .image--details {
-    justify-self: center;
-    align-self: center;
-    max-width: 100%;
-    border: solid 2rem var(--floral-white);
+    border: solid 1rem var(--floral-white);
   }
+}
+
+@media screen and (max-width: 810px) and (min-width: 640px) {
 }
