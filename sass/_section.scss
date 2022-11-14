@@ -17,3 +17,21 @@ section {
     background-color: var(--cg-blue);
   }
 }
+
+@media screen and (max-width: 640px) {
+  section {
+    padding: 1.5rem;
+    margin: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  #cocktail_category {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 811px) and (min-width: 640px) {
+  #cocktail_category {
+    margin-top: 1rem;
+  }
+}
