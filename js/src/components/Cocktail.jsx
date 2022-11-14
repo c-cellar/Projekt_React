@@ -86,9 +86,9 @@ export default function Cocktail() {
         <h2>
           <span className="h2--cocktail">Drinks</span>
         </h2>
-        <label htmlFor="withOrWithout">Choose your kind of drink</label>
+        <label htmlFor="cocktail_category">Choose your kind of drink</label>
         <select
-          id="withOrWithout"
+          id="cocktail_category"
           value={selectedDrinks}
           onChange={(e) => setSelectedDrinks(e.currentTarget.value)}
         >
