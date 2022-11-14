@@ -3,8 +3,9 @@ node_modules
 
 # generated files
 css/style.css
-js/dist/app.js
-js/dist/app.js.map
+js/dist
+# js/dist/app.js
+# js/dist/app.js.map
 temp/style.css
 css/style.css.map
 readMe.md
