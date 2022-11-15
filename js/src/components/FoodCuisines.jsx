@@ -38,6 +38,7 @@ export default function FoodCuisines({ setSearchTags }) {
         <option value="vietnamese">vietnamese</option>
       </select>
 
+      {/* <label htmlFor="african">
         African
         <input
           type="checkbox"
@@ -330,7 +331,7 @@ export default function FoodCuisines({ setSearchTags }) {
             })
           }
         />
-      </label>
+      </label> */}
     </div>
   );
 }

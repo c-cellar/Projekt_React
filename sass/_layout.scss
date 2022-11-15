@@ -1,6 +1,20 @@
 dl {
   display: grid;
-  grid-template-columns: 1fr 80%;
+  grid-template-columns: 1fr 65%;
+}
+
+.dl {
+  &--food {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &--film {
+    grid-template-columns: 1fr 80%;
+  }
+
+  &--ratings {
+    grid-template-columns: 1fr 40%;
+  }
 }
 
 dd {
@@ -15,15 +29,6 @@ dt {
 
 dl dd {
   margin-bottom: 1em;
-}
-
-.dl--food {
-  grid-template-columns: 1fr 1fr;
-}
-
-.dl--ratings {
-  display: grid;
-  grid-template-columns: 1fr 60%;
 }
 
 label {
@@ -49,6 +54,16 @@ input {
     &--drinksIngrediants {
       grid-template-columns: 1fr 1fr;
     }
+
+    &--film {
+      grid-template-columns: 1fr 75%;
+    }
+
+    &--ratings {
+      grid-template-columns: 1fr 30%;
+    }
+  }
+
   .container {
     display: flex;
     flex-direction: column;

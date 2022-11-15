@@ -22,6 +22,8 @@ export default function FoodDiet({ setSearchTags }) {
         <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
         <option value="pescetarian">pescetarian</option>
       </select>
+
+      {/* <label htmlFor="vegan">
         vegan
         <input
           type="checkbox"
@@ -76,7 +78,7 @@ export default function FoodDiet({ setSearchTags }) {
             })
           }
         />
-      </label>
+      </label> */}
     </div>
   );
 }

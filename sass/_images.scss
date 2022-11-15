@@ -15,11 +15,24 @@
   border: solid 2rem var(--floral-white);
 }
 
+.picture-recipeLink-container {
+  align-self: center;
+  text-align: center;
+  > img {
+    margin-bottom: 0.5rem;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .image--details {
     border: solid 1rem var(--floral-white);
   }
 }
 
-@media screen and (max-width: 810px) and (min-width: 640px) {
+@media screen and (max-width: 810px) {
+  .image--details > a {
+    .image--details {
+      margin-bottom: 1rem;
+    }
+  }
 }

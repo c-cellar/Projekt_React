@@ -17,7 +17,7 @@ export default function MovieDetails({ movieDetails }) {
     <div className="selectionDetails">
       <h3>{Title}</h3>
       <p>{Plot}</p>
-      <dl>
+      <dl className="dl--film">
         <dt>Year</dt>
         <dd>{Year}</dd>
         <dt>Runtime</dt>

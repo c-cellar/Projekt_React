@@ -36,6 +36,7 @@ export default function FoodMealTypes({ setSearchTags }) {
             })
           }
         />
+        main course
       </label>
       <label htmlFor="side dish">
         side dish
@@ -135,7 +136,7 @@ export default function FoodMealTypes({ setSearchTags }) {
             })
           }
         />
-      </label>
+      </label> */}
     </div>
   );
 }
