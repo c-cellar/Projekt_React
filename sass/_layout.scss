@@ -45,6 +45,10 @@ input {
 }
 
 @media screen and (max-width: 811px) {
+  .dl {
+    &--drinksIngrediants {
+      grid-template-columns: 1fr 1fr;
+    }
   .container {
     display: flex;
     flex-direction: column;

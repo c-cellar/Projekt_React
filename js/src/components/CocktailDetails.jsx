@@ -28,7 +28,7 @@ export default function CocktailDetails({ drinkDetails, randomDrink }) {
     <div className="selectionDetails">
       <h3>{cocktailName}</h3>
       {strIngredient1 && <h4>Ingrediants</h4>}
-      <dl>
+      <dl className="dl--drinksIngrediants">
         {strIngredient1 && <dt>{strIngredient1}</dt>}
         {strMeasure1 && <dd>{strMeasure1}</dd>}
         {strIngredient2 && <dt>{strIngredient2}</dt>}
