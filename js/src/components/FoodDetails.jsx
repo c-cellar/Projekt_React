@@ -7,7 +7,6 @@ export default function FoodDetails({ recipe }) {
   const {
     title,
     extendedIngredients,
-    spoonacularSourceUrl,
     vegetarian,
     vegan,
     glutenFree,
@@ -40,11 +39,6 @@ export default function FoodDetails({ recipe }) {
             <dd key={[id, amount]}>{name}</dd>
           ))}
       </dl>
-      {spoonacularSourceUrl && (
-        <a href={spoonacularSourceUrl} target="blank">
-          Go to recipe
-        </a>
-      )}
     </div>
   );
 }
