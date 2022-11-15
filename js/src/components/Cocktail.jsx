@@ -86,7 +86,7 @@ export default function Cocktail() {
         <h2>
           <span className="h2--cocktail">Drinks</span>
         </h2>
-        <label htmlFor="cocktail_category">Choose your kind of drink</label>
+        <p className="p--inputs">Choose your kind of drink</p>
         <select
           id="cocktail_category"
           value={selectedDrinks}
