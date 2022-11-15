@@ -15,16 +15,22 @@ const foodUrl =
   'https://api.spoonacular.com/recipes/random?apiKey=812d3fb83a5342979f1847b5249ae47c&number=1&tags=';
 
 export default function Food() {
-  const [searchTags, setSearchTags] = useReducer(createSearchTag, []);
+  const selections = {
+    diet: '',
+    mealType: '',
+    cuisine: '',
+  };
+
+  const [searchTags, setSearchTags] = useReducer(createSearchTag, selections);
   const [recipe, setRecipe] = useState([]);
 
   console.log(recipe);
 
   function fetchQuery() {
     async function fetchRecipe() {
-      const query = searchTags.join(',');
-
+      const query = Object.values(searchTags).join(',');
       console.log(query);
+
       try {
         const response = await fetch(`${foodUrl}${query}`);
 
@@ -78,12 +84,22 @@ export default function Food() {
 }
 
 function createSearchTag(searchTags, message) {
-  switch (message.checked) {
-    case true:
-      console.log('Wert wird hinzugefügt');
-      return [...searchTags, message.value];
-    case false:
-      console.log('Wert wird aus array entfernt');
-      return searchTags.filter((tag) => tag !== message.value);
+  const diet = 'selectDiet';
+  const mealType = 'selectMealTypes';
+  const cuisine = 'selectCuisine';
+
+  switch (message.type) {
+    case diet:
+      return { ...searchTags, diet: message.value };
+    case mealType:
+      return { ...searchTags, mealType: message.value };
+    case cuisine:
+      return { ...searchTags, cuisine: message.value };
+    // case true:
+    //   console.log('Wert wird hinzugefügt');
+    //   return [...searchTags, message.value];
+    // case false:
+    //   console.log('Wert wird aus array entfernt');
+    //   return searchTags.filter((tag) => tag !== message.value);
   }
 }
