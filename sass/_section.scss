@@ -23,10 +23,11 @@ section {
     padding: 1rem 0.5rem;
     margin: 1rem 0.5rem;
     border-radius: 1.5rem;
-  }
 
-  #cocktail_category {
-    margin-top: 1rem;
+    &--cocktail {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 

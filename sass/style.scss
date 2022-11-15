@@ -93,3 +93,21 @@ a {
   color: var(--onyx);
   font-weight: bold;
 }
+
+select {
+  background-color: var(--floral-white);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--onyx);
+  height: 3rem;
+}
+
+@media screen and (max-width: 640px) {
+}
+
+@media screen and (max-width: 811px) {
+  select#cocktail_category {
+    width: 100%;
+  }
+}
