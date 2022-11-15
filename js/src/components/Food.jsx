@@ -24,7 +24,7 @@ export default function Food() {
   const [searchTags, setSearchTags] = useReducer(createSearchTag, selections);
   const [recipe, setRecipe] = useState([]);
 
-  console.log(recipe);
+  console.log(searchTags);
 
   function fetchQuery() {
     async function fetchRecipe() {
@@ -41,6 +41,11 @@ export default function Food() {
 
         const jsonData = await response.json();
         console.log(jsonData.recipes[0]);
+
+        if (setRecipe(jsonData.recipes[0])) {
+          setRecipe([]);
+          console.log('hello');
+        }
 
         setRecipe(jsonData.recipes[0]);
       } catch (error) {
@@ -75,7 +80,6 @@ export default function Food() {
         <div className="button--container">
           <button onClick={fetchQuery}>
             {recipe ? 'get a meal' : 'roll again'}
-            {/* get a meal */}
           </button>
         </div>
       </section>
