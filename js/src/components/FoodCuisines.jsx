@@ -206,20 +206,6 @@ export default function FoodCuisines({ setSearchTags }) {
           }
         />
       </label>
-      <label htmlFor="jewish">
-        Jewish
-        <input
-          type="checkbox"
-          id="jewish"
-          value="jewish"
-          onChange={(e) =>
-            setSearchTags({
-              checked: e.currentTarget.checked,
-              value: e.currentTarget.value,
-            })
-          }
-        />
-      </label>
       <label htmlFor="korean">
         Korean
         <input
