@@ -122,7 +122,6 @@ export default function FoodMealTypes({ setSearchTags }) {
           }
         />
       </label>
-
       <label htmlFor="breakfast">
         breakfast
         <input
