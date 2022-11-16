@@ -86,18 +86,20 @@ export default function Cocktail() {
         <h2>
           <span className="h2--cocktail">Drinks</span>
         </h2>
-        <p className="p--inputs">Choose your kind of drink</p>
-        <select
-          id="cocktail_category"
-          value={selectedDrinks}
-          onChange={(e) => setSelectedDrinks(e.currentTarget.value)}
-        >
-          {drinks.map(({ strCategory }) => (
-            <option value={strCategory} key={strCategory}>
-              {strCategory}
-            </option>
-          ))}
-        </select>
+        <div className="container">
+          <p className="p--inputs">Choose your kind of drink</p>
+          <select
+            id="cocktail_category"
+            value={selectedDrinks}
+            onChange={(e) => setSelectedDrinks(e.currentTarget.value)}
+          >
+            {drinks.map(({ strCategory }) => (
+              <option value={strCategory} key={strCategory}>
+                {strCategory}
+              </option>
+            ))}
+          </select>
+        </div>
         <RandomCocktail randomDrink={randomDrink} drinkDetails={drinkDetails} />
         <div className="button--container">
           <button onClick={getACocktail}>
