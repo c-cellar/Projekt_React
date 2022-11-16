@@ -89,7 +89,7 @@ export default function Food() {
 
 function createSearchTag(searchTags, message) {
   const diet = 'selectDiet';
-  const mealType = 'selectMealTypes';
+  const mealType = 'selectMealType';
   const cuisine = 'selectCuisine';
 
   switch (message.type) {

@@ -3,7 +3,7 @@ export default function FoodMealTypes({ setSearchTags }) {
     <div className="container container--mealTypes">
       <p className="p--inputs">Select a kind of meal</p>
       <select
-        id="selectMealTypes"
+        id="selectMealType"
         onChange={(e) => {
           setSearchTags({
             checked: e.currentTarget.willValidate,
