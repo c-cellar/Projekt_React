@@ -4,7 +4,7 @@ export default function RandomCocktail({ randomDrink, drinkDetails }) {
   const { strDrinkThumb: cocktailPicture } = randomDrink;
 
   return (
-    <article className="view--randomSelection">
+    <article className="view--randomSelection article--cocktail">
       {cocktailPicture && (
         <img className="image--details" src={cocktailPicture} alt="Cocktail" />
       )}

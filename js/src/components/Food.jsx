@@ -103,11 +103,5 @@ function createSearchTag(searchTags, message) {
       return { ...searchTags, mealType: message.value };
     case cuisine:
       return { ...searchTags, cuisine: message.value };
-    // case true:
-    //   console.log('Wert wird hinzugefügt');
-    //   return [...searchTags, message.value];
-    // case false:
-    //   console.log('Wert wird aus array entfernt');
-    //   return searchTags.filter((tag) => tag !== message.value);
   }
 }
