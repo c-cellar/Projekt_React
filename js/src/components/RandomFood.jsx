@@ -1,6 +1,10 @@
 import FoodDetails from './FoodDetails';
 
 export default function RandomFood({ recipe }) {
+  if (recipe == undefined || recipe.id == undefined) {
+    return null;
+  }
+
   const { image, spoonacularSourceUrl } = recipe;
 
   return (

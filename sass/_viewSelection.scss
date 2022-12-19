@@ -9,6 +9,16 @@
   align-self: center;
 }
 
+.article {
+  &--cocktail {
+    border-top: 1px solid var(--floral-white);
+  }
+
+  &--food {
+    border-top: 1px solid var(--floral-white);
+  }
+}
+
 @media screen and (max-width: 811px) {
   .view--randomSelection {
     display: block;

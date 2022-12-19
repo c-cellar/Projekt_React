@@ -24,23 +24,23 @@ export default function Food() {
   const [searchTags, setSearchTags] = useReducer(createSearchTag, selections);
   const [recipe, setRecipe] = useState([]);
 
-  console.log(searchTags);
+  // console.log(searchTags);
 
   function fetchQuery() {
     async function fetchRecipe() {
       const query = Object.values(searchTags).join(',');
-      console.log(query);
+      // console.log(query);
 
       try {
         const response = await fetch(`${foodUrl}${query}`);
 
-        console.log(response);
+        // console.log(response);
         if (!response.ok) {
           throw new Error('Couldnt load recipe');
         }
 
         const jsonData = await response.json();
-        console.log(jsonData.recipes[0]);
+        // console.log(jsonData.recipes[0]);
 
         if (setRecipe(jsonData.recipes[0])) {
           setRecipe([]);
@@ -67,8 +67,11 @@ export default function Food() {
         <FoodMealTypes setSearchTags={setSearchTags} />
         {/* Cuisines */}
         <FoodCuisines setSearchTags={setSearchTags} />
-        {recipe ? (
-          <RandomFood recipe={recipe} />
+
+        <RandomFood recipe={recipe} />
+
+        {recipe !== undefined ? (
+          ''
         ) : (
           <div className="no-recipe--notification">
             <p>
@@ -77,6 +80,7 @@ export default function Food() {
             </p>
           </div>
         )}
+
         <div className="button--container">
           <button onClick={fetchQuery}>
             {recipe ? 'get a meal' : 'roll again'}
