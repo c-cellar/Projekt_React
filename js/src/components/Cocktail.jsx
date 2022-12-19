@@ -100,7 +100,12 @@ export default function Cocktail() {
             ))}
           </select>
         </div>
-        <RandomCocktail randomDrink={randomDrink} drinkDetails={drinkDetails} />
+        {randomDrink.idDrink && (
+          <RandomCocktail
+            randomDrink={randomDrink}
+            drinkDetails={drinkDetails}
+          />
+        )}
         <div className="button--container">
           <button onClick={getACocktail}>
             {drinkDetails.length == 0 ? 'get a drink' : 'roll again'}
