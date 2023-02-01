@@ -1,16 +1,21 @@
-import { useEffect, useState } from 'react';
-import RandomCocktail from './RandomCocktail';
+import { useState, useEffect } from 'react';
 import { randomNumber } from '../helpers';
+import { useSearchParams } from 'react-router-dom';
+import RandomCocktail from './RandomCocktail';
 
 const cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
-export default function Cocktail() {
+export default function CocktailSelection() {
+  const [categories, setCategories] = useState('Ordinary Drink');
   const [drinks, setDrinks] = useState([]);
-  const [selectedDrinks, setSelectedDrinks] = useState('Ordinary Drink');
-  const [randomDrink, setRandomDrink] = useState([]);
+
+  const [searchParams, setSearchParams] = useSearchParams({});
+
   const [drinkDetails, setDrinkDetails] = useState([]);
 
-  // Get the options of non alcoholic, alcoholic or optional alcohol
+  const drinkId = searchParams.get('drink');
+
+  // Get drinks depending on the selected category
   useEffect(() => {
     async function fetchDrinks() {
       try {
@@ -24,6 +29,10 @@ export default function Cocktail() {
         const drinks = await jsonData.drinks;
 
         setDrinks(drinks);
+
+        drinkId !== null
+          ? getCocktailById(drinkId)
+          : console.log('No drinkId passed with URL');
       } catch (error) {
         console.log(error);
       }
@@ -31,11 +40,36 @@ export default function Cocktail() {
     fetchDrinks();
   }, []);
 
+  // get CocktailById
+  function getCocktailById(drinkId) {
+    async function fetchCocktailById() {
+      try {
+        const response = await fetch(`${cocktailUrl}lookup.php?i=${drinkId}`);
+
+        if (!response.ok) {
+          throw new Error('Details konnten nicht geladen werden');
+        }
+
+        const jsonData = await response.json();
+        console.log(jsonData);
+
+        const cocktailDetails = await jsonData.drinks[0];
+        console.log(cocktailDetails);
+
+        setDrinkDetails(cocktailDetails);
+        setCategories(cocktailDetails.strCategory);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchCocktailById();
+  }
+
   // get one random drink onClick
   function getACocktail() {
     async function fetchDrinksBySelection() {
       try {
-        const clearSelection = selectedDrinks.replace(' ', '_');
+        const clearSelection = categories.replace(' ', '_');
 
         const response = await fetch(
           `${cocktailUrl}filter.php?c=${clearSelection}`
@@ -49,7 +83,9 @@ export default function Cocktail() {
 
         const getRandomNumber = randomNumber(jsonData.drinks.length);
 
-        setRandomDrink(jsonData.drinks[getRandomNumber]);
+        const rolledCocktail = jsonData.drinks[getRandomNumber];
+
+        setSearchParams({ drink: rolledCocktail.idDrink });
       } catch (error) {
         console.log(error);
       }
@@ -57,13 +93,11 @@ export default function Cocktail() {
     fetchDrinksBySelection();
   }
 
-  // get the random Cocktail by Id for details
+  // get Cocktail by Id for details
   useEffect(() => {
     async function fetchCocktailById() {
       try {
-        const response = await fetch(
-          `${cocktailUrl}lookup.php?i=${randomDrink.idDrink}`
-        );
+        const response = await fetch(`${cocktailUrl}lookup.php?i=${drinkId}`);
 
         if (!response.ok) {
           throw new Error('Details konnten nicht geladen werden');
@@ -78,7 +112,7 @@ export default function Cocktail() {
       }
     }
     fetchCocktailById();
-  }, [randomDrink]);
+  }, [drinkId]);
 
   return (
     <div>
@@ -90,8 +124,8 @@ export default function Cocktail() {
           <p className="p--inputs">Choose your kind of drink</p>
           <select
             id="cocktail_category"
-            value={selectedDrinks}
-            onChange={(e) => setSelectedDrinks(e.currentTarget.value)}
+            value={categories}
+            onChange={(e) => setCategories(e.currentTarget.value)}
           >
             {drinks.map(({ strCategory }) => (
               <option value={strCategory} key={strCategory}>
@@ -100,15 +134,18 @@ export default function Cocktail() {
             ))}
           </select>
         </div>
-        {randomDrink.idDrink && (
+
+        {drinkDetails.idDrink && (
           <RandomCocktail
-            randomDrink={randomDrink}
+            drinkId={drinkId}
+            cocktailUrl={cocktailUrl}
             drinkDetails={drinkDetails}
           />
         )}
+
         <div className="button--container">
           <button onClick={getACocktail}>
-            {drinkDetails.length == 0 ? 'get a drink' : 'roll again'}
+            {drinkId === null ? 'get a drink' : 'roll again'}
           </button>
         </div>
       </section>

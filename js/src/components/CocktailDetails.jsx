@@ -1,5 +1,5 @@
-export default function CocktailDetails({ drinkDetails, randomDrink }) {
-  const { strDrink: cocktailName } = randomDrink;
+export default function CocktailDetails({ drinkDetails }) {
+  const { strDrink: cocktailName } = drinkDetails;
   const {
     strInstructions,
     strIngredient1,

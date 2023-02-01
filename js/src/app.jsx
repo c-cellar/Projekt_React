@@ -1,6 +1,11 @@
 import { createRoot } from 'react-dom/client';
-import EntryComponent from './components/EntryComponent';
+import { BrowserRouter } from 'react-router-dom';
+import Index from './Index';
 
 const root = createRoot(document.querySelector('#app'));
 
-root.render(<EntryComponent title="Just Random" />);
+root.render(
+  <BrowserRouter>
+    <Index title="Just Random" />
+  </BrowserRouter>
+);

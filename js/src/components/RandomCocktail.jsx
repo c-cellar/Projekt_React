@@ -1,14 +1,14 @@
 import CocktailDetails from './CocktailDetails';
 
-export default function RandomCocktail({ randomDrink, drinkDetails }) {
-  const { strDrinkThumb: cocktailPicture } = randomDrink;
+export default function RandomCocktail({ drinkDetails }) {
+  const { strDrinkThumb: cocktailPicture } = drinkDetails;
 
   return (
     <article className="view--randomSelection article--cocktail">
       {cocktailPicture && (
         <img className="image--details" src={cocktailPicture} alt="Cocktail" />
       )}
-      <CocktailDetails drinkDetails={drinkDetails} randomDrink={randomDrink} />
+      <CocktailDetails drinkDetails={drinkDetails} />
     </article>
   );
 }
