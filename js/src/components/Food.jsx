@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 import FoodCuisines from './FoodCuisines';
 import FoodDiet from './FoodDiet';
 import FoodMealTypes from './FoodMealTypes';
@@ -14,7 +14,7 @@ import RandomFood from './RandomFood';
 const foodUrl =
   'https://api.spoonacular.com/recipes/random?apiKey=812d3fb83a5342979f1847b5249ae47c&number=1&tags=';
 
-export default function Food() {
+export default function Food({ searchParams, setSearchParams }) {
   const selections = {
     diet: '',
     mealType: '',
@@ -24,7 +24,35 @@ export default function Food() {
   const [searchTags, setSearchTags] = useReducer(createSearchTag, selections);
   const [recipe, setRecipe] = useState([]);
 
-  // console.log(searchTags);
+  useEffect(() => {
+    async function getRecipeById() {
+      if (!searchParams.get('rId')) {
+        console.log('no params passed');
+        return;
+      }
+
+      console.log('funktion wird ausgeführt');
+
+      const id = searchParams.get('rId');
+
+      try {
+        const response = await fetch(
+          `https://api.spoonacular.com/recipes/${id}/information?apiKey=812d3fb83a5342979f1847b5249ae47c&includeNutrition=false`
+        );
+
+        if (!response.ok) {
+          throw new Error('Could not load recipe');
+        }
+
+        const jsonData = await response.json();
+
+        setRecipe(jsonData);
+      } catch (error) {
+        console.log;
+      }
+    }
+    getRecipeById();
+  }, []);
 
   function fetchQuery() {
     async function fetchRecipe() {
@@ -34,20 +62,18 @@ export default function Food() {
       try {
         const response = await fetch(`${foodUrl}${query}`);
 
-        // console.log(response);
         if (!response.ok) {
-          throw new Error('Couldnt load recipe');
+          throw new Error('Could not load recipe');
         }
 
         const jsonData = await response.json();
-        // console.log(jsonData.recipes[0]);
 
-        if (setRecipe(jsonData.recipes[0])) {
-          setRecipe([]);
-          console.log('hello');
-        }
+        const firstRandomRecipe = await jsonData.recipes[0];
 
-        setRecipe(jsonData.recipes[0]);
+        setRecipe(firstRandomRecipe);
+
+        searchParams.set('rId', firstRandomRecipe.id);
+        setSearchParams(searchParams);
       } catch (error) {
         console.log(error);
       }
