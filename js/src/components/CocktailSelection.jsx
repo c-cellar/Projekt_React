@@ -1,21 +1,17 @@
 import { useState, useEffect } from 'react';
 import { randomNumber } from '../helpers';
-import { useSearchParams } from 'react-router-dom';
 import RandomCocktail from './RandomCocktail';
 
 const cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
-export default function CocktailSelection() {
-  const [categories, setCategories] = useState('Ordinary Drink');
-  const [drinks, setDrinks] = useState([]);
-
-  const [searchParams, setSearchParams] = useSearchParams({});
-
+export default function CocktailSelection({ searchParams, setSearchParams }) {
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('Ordinary Drink');
   const [drinkDetails, setDrinkDetails] = useState([]);
 
-  const drinkId = searchParams.get('drink');
+  const drinkId = searchParams.get('dID');
 
-  // Get drinks depending on the selected category
+  // Gets an collection of drinks depending on the selected category
   useEffect(() => {
     async function fetchDrinks() {
       try {
@@ -26,13 +22,16 @@ export default function CocktailSelection() {
         }
 
         const jsonData = await response.json();
-        const drinks = await jsonData.drinks;
+        const AllCategories = await jsonData.drinks;
 
-        setDrinks(drinks);
+        setCategories(AllCategories);
 
         drinkId !== null
-          ? getCocktailById(drinkId)
-          : console.log('No drinkId passed with URL');
+          ? () => {
+              fetchCocktailById(drinkId, setDrinkDetails);
+              setSelectedCategory(drinkDetails.strCategory);
+            }
+          : null;
       } catch (error) {
         console.log(error);
       }
@@ -40,39 +39,14 @@ export default function CocktailSelection() {
     fetchDrinks();
   }, []);
 
-  // get CocktailById
-  function getCocktailById(drinkId) {
-    async function fetchCocktailById() {
-      try {
-        const response = await fetch(`${cocktailUrl}lookup.php?i=${drinkId}`);
-
-        if (!response.ok) {
-          throw new Error('Details konnten nicht geladen werden');
-        }
-
-        const jsonData = await response.json();
-        console.log(jsonData);
-
-        const cocktailDetails = await jsonData.drinks[0];
-        console.log(cocktailDetails);
-
-        setDrinkDetails(cocktailDetails);
-        setCategories(cocktailDetails.strCategory);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchCocktailById();
-  }
-
   // get one random drink onClick
   function getACocktail() {
     async function fetchDrinksBySelection() {
       try {
-        const clearSelection = categories.replace(' ', '_');
+        const cleanCategory = selectedCategory.replace(' ', '_');
 
         const response = await fetch(
-          `${cocktailUrl}filter.php?c=${clearSelection}`
+          `${cocktailUrl}filter.php?c=${cleanCategory}`
         );
 
         if (!response.ok) {
@@ -85,7 +59,8 @@ export default function CocktailSelection() {
 
         const rolledCocktail = jsonData.drinks[getRandomNumber];
 
-        setSearchParams({ drink: rolledCocktail.idDrink });
+        searchParams.set('dID', rolledCocktail.idDrink);
+        setSearchParams(searchParams);
       } catch (error) {
         console.log(error);
       }
@@ -95,23 +70,7 @@ export default function CocktailSelection() {
 
   // get Cocktail by Id for details
   useEffect(() => {
-    async function fetchCocktailById() {
-      try {
-        const response = await fetch(`${cocktailUrl}lookup.php?i=${drinkId}`);
-
-        if (!response.ok) {
-          throw new Error('Details konnten nicht geladen werden');
-        }
-
-        const jsonData = await response.json();
-
-        const cocktailDetails = jsonData.drinks[0];
-        setDrinkDetails(cocktailDetails);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchCocktailById();
+    fetchCocktailById(drinkId, setDrinkDetails, setSelectedCategory);
   }, [drinkId]);
 
   return (
@@ -124,10 +83,10 @@ export default function CocktailSelection() {
           <p className="p--inputs">Choose your kind of drink</p>
           <select
             id="cocktail_category"
-            value={categories}
-            onChange={(e) => setCategories(e.currentTarget.value)}
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.currentTarget.value)}
           >
-            {drinks.map(({ strCategory }) => (
+            {categories.map(({ strCategory }) => (
               <option value={strCategory} key={strCategory}>
                 {strCategory}
               </option>
@@ -135,13 +94,7 @@ export default function CocktailSelection() {
           </select>
         </div>
 
-        {drinkDetails.idDrink && (
-          <RandomCocktail
-            drinkId={drinkId}
-            cocktailUrl={cocktailUrl}
-            drinkDetails={drinkDetails}
-          />
-        )}
+        {drinkDetails.idDrink && <RandomCocktail drinkDetails={drinkDetails} />}
 
         <div className="button--container">
           <button onClick={getACocktail}>
@@ -151,4 +104,27 @@ export default function CocktailSelection() {
       </section>
     </div>
   );
+}
+
+async function fetchCocktailById(
+  drinkId,
+  setDrinkDetails,
+  setSelectedCategory
+) {
+  try {
+    const response = await fetch(`${cocktailUrl}lookup.php?i=${drinkId}`);
+
+    if (!response.ok) {
+      throw new Error('Details konnten nicht geladen werden');
+    }
+
+    const jsonData = await response.json();
+
+    const cocktailDetails = jsonData.drinks[0];
+
+    setDrinkDetails(cocktailDetails);
+    setSelectedCategory(cocktailDetails.strCategory);
+  } catch (error) {
+    console.log(error);
+  }
 }
