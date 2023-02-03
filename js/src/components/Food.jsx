@@ -27,7 +27,6 @@ export default function Food({ searchParams, setSearchParams }) {
   useEffect(() => {
     async function getRecipeById() {
       if (!searchParams.get('rId')) {
-        console.log('no params passed');
         return;
       }
 
