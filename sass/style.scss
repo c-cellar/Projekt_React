@@ -5,14 +5,19 @@
 @use 'images';
 @use 'section';
 @use 'button';
-
-* {
-  font-family: sans-serif;
-}
+@use 'fonts';
 
 body {
+  font-family: 'Epilogue', sans-serif;
   width: 100%;
   background-color: var(--floral-white);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Sora', sans-serif;
 }
 
 h1 {
