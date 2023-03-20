@@ -9,3 +9,4 @@ readMe.md
 # css/style.css.map
 # js/dist/app.js
 # js/dist/app.js.map
+js/dist/*.png
