@@ -1,21 +1,11 @@
 import { Fragment } from 'react';
 
 export default function MovieDetails({ movieDetails }) {
-  const {
-    Title,
-    Year,
-    Runtime,
-    Genre,
-    Director,
-    Actors,
-    Plot,
-    Awards,
-    Ratings,
-  } = movieDetails;
+  const { Year, Runtime, Genre, Director, Actors, Plot, Awards, Ratings } =
+    movieDetails;
 
   return (
     <div className="selectionDetails">
-      <h3>{Title}</h3>
       <p>{Plot}</p>
       <dl className="dl--film">
         <dt>Year</dt>

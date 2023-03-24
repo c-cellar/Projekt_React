@@ -1,10 +1,14 @@
 import MovieDetails from './MovieDetails';
 
-export default function RandomMovie({ movieDetails }) {
+export default function RandomMovie({
+  movieDetails,
+  showDetails,
+  setShowDetails,
+}) {
   const { Title, Poster } = movieDetails;
 
   return (
-    <article className="view--randomSelection">
+    <article className="view--randomSelection article--movie">
       {Poster && (
         <img
           className="image--details"
@@ -12,7 +16,14 @@ export default function RandomMovie({ movieDetails }) {
           alt={`Poster of ${Title}`}
         />
       )}
-      {Title && <MovieDetails movieDetails={movieDetails} />}
+      <header className="article--movie--header">
+        <h3>{Title}</h3>
+        <button
+          className={`button--details${showDetails ? '--show' : ''}`}
+          onClick={() => setShowDetails(!showDetails)}
+        ></button>
+        {showDetails && <MovieDetails movieDetails={movieDetails} />}
+      </header>
     </article>
   );
 }
