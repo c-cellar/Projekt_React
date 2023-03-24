@@ -24,14 +24,6 @@ button {
       height: 3rem;
     }
   }
-
-  &--watchlist {
-    color: var(--floral-white);
-    margin-block: 0;
-    margin-left: 1rem;
-    background: none;
-    padding: 0.5rem;
-  }
 }
 
 // .primary {
@@ -43,10 +35,14 @@ button {
 }
 
 .button--details,
-.button--details--show {
+.button--watchlist,
+.button--details--show,
+.button--watchlist--show {
   position: relative;
   border: none;
   background: none;
+  margin-top: 0;
+  margin-left: 0.5rem;
 
   &::before {
     content: ' ';

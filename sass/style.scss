@@ -96,7 +96,12 @@ header :is(h3) {
 }
 
 @media screen and (min-width: 811px) {
-  h3 {
+  header :is(h3) {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+
+  .selectionDetails :is(h3) {
     font-size: 3rem;
     margin-top: 0;
   }

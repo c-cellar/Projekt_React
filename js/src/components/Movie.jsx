@@ -130,11 +130,9 @@ export default function Movie({ searchParams, setSearchParams }) {
           <p className="p--inputs">
             add film to personal watchlist
             <button
-              className="button--watchlist secondary"
+              className="button--watchlist"
               onClick={() => setShowWatchlist(!showWatchlist)}
-            >
-              watchlist
-            </button>
+            ></button>
           </p>
           <form onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="search" hidden>
