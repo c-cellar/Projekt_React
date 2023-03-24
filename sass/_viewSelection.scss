@@ -10,12 +10,19 @@
 }
 
 .article {
-  &--cocktail {
+  &--cocktail,
+  &--food,
+  &--teaser,
+  &--movie {
     border-top: 1px solid var(--floral-white);
-  }
+    align-items: center;
 
-  &--food {
-    border-top: 1px solid var(--floral-white);
+    &--header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      height: fit-content;
+    }
   }
 }
 

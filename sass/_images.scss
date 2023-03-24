@@ -24,6 +24,12 @@
   }
 }
 
+.image--teaser {
+  border: solid 1rem var(--floral-white);
+  width: 100%;
+  min-height: 10rem;
+}
+
 @media screen and (max-width: 640px) {
   .image--details {
     border: solid 1rem var(--floral-white);
