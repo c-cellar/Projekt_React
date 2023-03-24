@@ -3,19 +3,14 @@ import { useEffect, useState, useReducer } from 'react';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
 import RandomMovie from './RandomMovie';
 import FilmTeaser from './FilmTeaser';
-import moviesToWatch from '../moviesToWatch';
+import Watchlist from './Watchlist';
 
 const OMDd = 'https://www.omdbapi.com/?apikey=1d847164';
 
-function getWatchlist(defaultWatchlist) {
+function getWatchlist() {
   const localStorageWatchlist = JSON.parse(localStorage.getItem('watchlist'));
-  console.log(localStorageWatchlist);
 
-  if (!(localStorageWatchlist === null)) {
-    return localStorageWatchlist;
-  }
-
-  return defaultWatchlist;
+  return !(localStorageWatchlist === null) ? localStorageWatchlist : [];
 }
 
 function getRandomFilmFromWatchlist(watchList, setMovieId) {
@@ -64,6 +59,8 @@ function watchListReducer(watchList, message) {
       return [...watchList, { id: message.id }];
     case 'remove':
       return watchList.filter((watchlist) => watchlist.id !== message.id);
+    case 'clear':
+      return [];
   }
 
   throw Error('Unknown action: ' + message.action);
@@ -75,9 +72,10 @@ export default function Movie({ searchParams, setSearchParams }) {
   const [showDetails, setShowDetails] = useState(false);
   const [searchUserInput, setSearchUserInput] = useState('');
   const [resultsUserInput, setResultsUserInput] = useState([]);
+  const [showWatchlist, setShowWatchlist] = useState(false);
   const [watchList, watchListDispatch] = useReducer(
     watchListReducer,
-    moviesToWatch,
+    null,
     getWatchlist
   );
 
@@ -129,7 +127,15 @@ export default function Movie({ searchParams, setSearchParams }) {
 
         {/* search film and add to watchlist */}
         <div className="container">
-          <p className="p--inputs">add film to personal watchlist</p>
+          <p className="p--inputs">
+            add film to personal watchlist
+            <button
+              className="button--watchlist secondary"
+              onClick={() => setShowWatchlist(!showWatchlist)}
+            >
+              watchlist
+            </button>
+          </p>
           <form onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="search" hidden>
               title
@@ -144,6 +150,13 @@ export default function Movie({ searchParams, setSearchParams }) {
             />
           </form>
         </div>
+
+        {showWatchlist && (
+          <Watchlist
+            watchList={watchList}
+            watchListDispatch={watchListDispatch}
+          />
+        )}
 
         {!(resultsUserInput.length === 0) && (
           <FilmTeaser
