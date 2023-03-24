@@ -14,15 +14,15 @@ export default function Index({ title }) {
           path="/"
           element={
             <>
+              <Movie
+                searchParams={searchParams}
+                setSearchParams={setSearchParams}
+              />
               <CocktailSelection
                 searchParams={searchParams}
                 setSearchParams={setSearchParams}
               />
               <Food
-                searchParams={searchParams}
-                setSearchParams={setSearchParams}
-              />
-              <Movie
                 searchParams={searchParams}
                 setSearchParams={setSearchParams}
               />

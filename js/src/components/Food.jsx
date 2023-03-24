@@ -26,11 +26,7 @@ export default function Food({ searchParams, setSearchParams }) {
 
   useEffect(() => {
     async function getRecipeById() {
-      if (!searchParams.get('rId')) {
-        return;
-      }
-
-      console.log('funktion wird ausgeführt');
+      if (!searchParams.get('rId')) return;
 
       const id = searchParams.get('rId');
 
@@ -56,7 +52,6 @@ export default function Food({ searchParams, setSearchParams }) {
   function fetchQuery() {
     async function fetchRecipe() {
       const query = Object.values(searchTags).join(',');
-      // console.log(query);
 
       try {
         const response = await fetch(`${foodUrl}${query}`);

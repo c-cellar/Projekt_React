@@ -111,6 +111,8 @@ async function fetchCocktailById(
   setDrinkDetails,
   setSelectedCategory
 ) {
+  if (drinkId == null) return;
+
   try {
     const response = await fetch(`${cocktailUrl}lookup.php?i=${drinkId}`);
 

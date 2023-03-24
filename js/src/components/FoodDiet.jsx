@@ -13,7 +13,6 @@ export default function FoodDiet({ setSearchTags }) {
             value: e.currentTarget.value,
             type: e.currentTarget.id,
           });
-          console.log(e.currentTarget);
         }}
       >
         <option value="">none</option>
