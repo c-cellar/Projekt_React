@@ -47,9 +47,13 @@ input[type='search'] {
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 80%;
   margin: 1rem auto;
+
+  &--input--watchlist {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
 .p--inputs {
@@ -91,7 +95,12 @@ select,
   .container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     width: 100%;
+
+    :is(form) {
+      width: 100%;
+    }
   }
 
   .movie--input {

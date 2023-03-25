@@ -127,13 +127,13 @@ export default function Movie({ searchParams, setSearchParams }) {
 
         {/* search film and add to watchlist */}
         <div className="container">
-          <p className="p--inputs">
-            add film to personal watchlist
+          <div className="container--input--watchlist">
+            <p className="p--inputs">add film to personal watchlist</p>
             <button
               className="button--watchlist"
               onClick={() => setShowWatchlist(!showWatchlist)}
             ></button>
-          </p>
+          </div>
           <form onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="search" hidden>
               title
@@ -197,6 +197,7 @@ export default function Movie({ searchParams, setSearchParams }) {
             ))}
 
           <button
+            disabled={watchList.length === 0 ? true : false}
             onClick={() => getRandomFilmFromWatchlist(watchList, setMovieId)}
           >
             {movieDetails == 0 ? 'get a film' : 'roll again'}

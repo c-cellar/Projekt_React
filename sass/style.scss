@@ -90,7 +90,6 @@ header {
 }
 
 header :is(h3) {
-  margin-bottom: 0;
   max-width: 85%;
   word-wrap: break-word;
 }
@@ -99,6 +98,7 @@ header :is(h3) {
   header :is(h3) {
     font-size: 3rem;
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   .selectionDetails :is(h3) {
