@@ -24,6 +24,23 @@ button {
       height: 3rem;
     }
   }
+
+  &--container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+
+    button {
+      width: fit-content;
+    }
+  }
+
+  &--clearWatchlist {
+    margin-block: 1rem;
+    margin-inline: auto;
+    background-color: grey;
+  }
 }
 
 // .primary {
@@ -79,13 +96,9 @@ button {
   }
 }
 
-.button--container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  align-items: center;
-
-  button {
-    width: fit-content;
-  }
+.button--watchlist--remove {
+  padding: 0.5rem;
+  background: none;
+  margin-top: 0;
+  border: none;
 }

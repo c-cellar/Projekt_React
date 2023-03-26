@@ -12,7 +12,7 @@ export default function FilmTeaser({
 }) {
   return (
     <div className="filmTeaser-wrapper">
-      {resultsUserInput.map(({ Title, Poster, Year, imdbID }) => (
+      {resultsUserInput.map(({ Title, Poster, Year, imdbID, Type }) => (
         <article className="article--teaser" key={imdbID}>
           {Poster !== 'N/A' ? (
             <img
@@ -31,7 +31,12 @@ export default function FilmTeaser({
               <button
                 aria-label={`remove ${Title} from watch list`}
                 onClick={() =>
-                  watchListDispatch({ id: imdbID, action: 'remove' })
+                  watchListDispatch({
+                    id: imdbID,
+                    title: Title,
+                    type: Type,
+                    action: 'remove',
+                  })
                 }
               >
                 remove
@@ -39,7 +44,14 @@ export default function FilmTeaser({
             ) : (
               <button
                 aria-label={`add ${Title} to watch list`}
-                onClick={() => watchListDispatch({ id: imdbID, action: 'add' })}
+                onClick={() =>
+                  watchListDispatch({
+                    id: imdbID,
+                    title: Title,
+                    type: Type,
+                    action: 'add',
+                  })
+                }
               >
                 add to watchlist
               </button>

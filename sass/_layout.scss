@@ -54,6 +54,33 @@ input[type='search'] {
     display: flex;
     justify-content: flex-start;
   }
+
+  &--watchlist {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.watchlist {
+  &--ul {
+    padding-left: 0;
+  }
+
+  &--li {
+    border: 1px solid var(--floral-white);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+
+    h4 {
+      color: var(--floral-white);
+      margin-left: 1rem;
+    }
+  }
 }
 
 .p--inputs {

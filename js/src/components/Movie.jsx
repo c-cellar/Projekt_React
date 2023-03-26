@@ -54,9 +54,11 @@ function useGetFilmFromUserInput(searchUserInput, setResultsUserInput) {
 }
 
 function watchListReducer(watchList, message) {
+  const { id, title, type } = message;
+
   switch (message.action) {
     case 'add':
-      return [...watchList, { id: message.id }];
+      return [...watchList, { id, title, type }];
     case 'remove':
       return watchList.filter((watchlist) => watchlist.id !== message.id);
     case 'clear':
@@ -68,7 +70,7 @@ function watchListReducer(watchList, message) {
 
 export default function Movie({ searchParams, setSearchParams }) {
   const [movieId, setMovieId] = useState();
-  const [movieDetails, setMovieDetails] = useState([]);
+  const [movieDetails, setMovieDetails] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [searchUserInput, setSearchUserInput] = useState('');
   const [resultsUserInput, setResultsUserInput] = useState([]);
@@ -153,6 +155,7 @@ export default function Movie({ searchParams, setSearchParams }) {
           <Watchlist
             watchList={watchList}
             watchListDispatch={watchListDispatch}
+            setMovieDetails={setMovieDetails}
           />
         )}
 
@@ -164,7 +167,7 @@ export default function Movie({ searchParams, setSearchParams }) {
           />
         )}
 
-        {movieDetails.Title && (
+        {movieDetails && (
           <RandomMovie
             movieDetails={movieDetails}
             showDetails={showDetails}
@@ -179,7 +182,12 @@ export default function Movie({ searchParams, setSearchParams }) {
                 className="secondary"
                 aria-label={`remove ${movieDetails.Title} from watch list`}
                 onClick={() =>
-                  watchListDispatch({ id: movieId, action: 'remove' })
+                  watchListDispatch({
+                    id: movieId,
+                    title: movieDetails.Title,
+                    type: movieDetails.Type,
+                    action: 'remove',
+                  })
                 }
               >
                 remove
@@ -189,7 +197,12 @@ export default function Movie({ searchParams, setSearchParams }) {
                 className="secondary"
                 aria-label={`add ${movieDetails.Title} to watch list`}
                 onClick={() =>
-                  watchListDispatch({ id: movieId, action: 'add' })
+                  watchListDispatch({
+                    id: movieId,
+                    title: movieDetails.Title,
+                    type: movieDetails.Type,
+                    action: 'add',
+                  })
                 }
               >
                 add to watchlist
@@ -200,7 +213,7 @@ export default function Movie({ searchParams, setSearchParams }) {
             disabled={watchList.length === 0 ? true : false}
             onClick={() => getRandomFilmFromWatchlist(watchList, setMovieId)}
           >
-            {movieDetails == 0 ? 'get a film' : 'roll again'}
+            {movieDetails === null ? 'get a film' : 'roll again'}
           </button>
         </div>
       </section>
