@@ -101,4 +101,14 @@ button {
   background: none;
   margin-top: 0;
   border: none;
+
+  :is(img) {
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--light-coral);
+  }
+
+  &:hover :is(img) {
+    border: 2px solid var(--floral-white);
+  }
 }
