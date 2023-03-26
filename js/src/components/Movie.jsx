@@ -132,7 +132,7 @@ export default function Movie({ searchParams, setSearchParams }) {
           <div className="container--input--watchlist">
             <p className="p--inputs">add film to personal watchlist</p>
             <button
-              className="button--watchlist"
+              className={`button--watchlist${showWatchlist ? '--show' : ''}`}
               onClick={() => setShowWatchlist(!showWatchlist)}
             ></button>
           </div>

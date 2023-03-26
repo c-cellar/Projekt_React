@@ -2,7 +2,7 @@ export default function FoodCuisines({ setSearchTags }) {
   return (
     <div className="container container--cuisines">
       <p className="p--inputs">
-        Select a prefered cuisine (none for no preferation)
+        Select a preferred cuisine (none for no preference)
       </p>
       <select
         id="selectCuisine"
