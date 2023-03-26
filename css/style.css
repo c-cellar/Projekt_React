@@ -1,2 +1,818 @@
-@charset "UTF-8";:root{--cultured:#f9fafb;--cultured-2:#eaedf0;--gainsboro:#dfe3e7;--light-gray:#ced4da;--cadet-blue-crayola:#adb5bd;--sonic-silver:#6d767e;--davys-grey:#484f56;--onyx:#353b41;--eerie-black:#22262a;--cg-blue:#227b9b;--tiffany-blue:#17c4b3;--maximum-yellow-red:#ffca75;--floral-white:#fefaf1;--light-coral:#fe6c71}*,:after,:before{box-sizing:border-box}html{-webkit-text-size-adjust:100%;line-height:1.15;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;margin:0}hr{color:inherit;height:0}abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}dl{display:grid;grid-template-columns:1fr 65%}.dl--food{grid-template-columns:1fr 1fr}.dl--film{grid-template-columns:1fr 80%}.dl--ratings{grid-template-columns:1fr 40%}dd{margin:0;padding-left:1em}dt{color:#353b41;color:var(--onyx);font-weight:700}dl dd{margin-bottom:1em}label{margin-right:1rem}input{margin-left:.25rem}input[type=search]{-webkit-appearance:none;outline:none}.container{display:flex;justify-content:space-between;margin:1rem auto;width:80%}.container--input--watchlist{display:flex;justify-content:flex-start}.container--watchlist{display:flex;flex-direction:column}.watchlist--ul{padding-left:0}.watchlist--li{align-items:center;border:1px solid #fefaf1;border:1px solid var(--floral-white);border-radius:1rem;display:flex;justify-content:space-between;list-style:none;margin-bottom:1rem;padding:.5rem}.watchlist--li h4{margin-left:1rem}.p--inputs,.watchlist--li h4{color:#fefaf1;color:var(--floral-white)}.p--inputs{grid-column-end:5;grid-column-start:1}.movie--input{border:none}.movie--input,select{background-color:#fefaf1;background-color:var(--floral-white);border:none;border-radius:.75rem;color:#353b41;color:var(--onyx);height:3rem;padding:.5rem;width:12rem}@media screen and (max-width:811px){.dl--drinksIngrediants{grid-template-columns:1fr 1fr}.dl--film{grid-template-columns:1fr 75%}.dl--ratings{grid-template-columns:1fr 30%}.container{align-items:flex-start;display:flex;flex-direction:column;width:100%}.container form{width:100%}.movie--input{border:none}.movie--input,select{width:100%}}.filmTeaser-wrapper{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem;margin-top:3rem;position:relative}.filmTeaser-wrapper :nth-last-child(2){margin-bottom:5rem}.filmTeaser-wrapper .article--teaser{background-color:grey;border:2px solid #fefaf1;border:2px solid var(--floral-white);border-radius:1rem;height:-moz-fit-content;height:fit-content;max-width:300px;padding:1rem}.filmTeaser-wrapper .article--teaser .img--teaser{width:100%}.filmTeaser-wrapper .article--teaser .button-wrapper{align-self:flex-end;display:flex;gap:2rem;justify-content:center}@media screen and (max-width:985px){.container{width:100%}}.view--randomSelection{grid-column-gap:2rem;-moz-column-gap:2rem;column-gap:2rem;display:grid;grid-template-columns:40% 1fr;padding-top:3rem}.selectionDetails{align-self:center}.article--cocktail,.article--food,.article--movie,.article--teaser{align-items:center;border-top:1px solid #fefaf1;border-top:1px solid var(--floral-white)}.article--cocktail--header,.article--food--header,.article--movie--header,.article--teaser--header{display:flex;flex-wrap:wrap;height:-moz-fit-content;height:fit-content;justify-content:space-between}@media screen and (max-width:811px){.view--randomSelection{display:block}}.image--icon{background-color:#fefaf1;background-color:var(--floral-white);border:1px solid #fefaf1;border:1px solid var(--floral-white);border-radius:1rem;margin-right:1rem;max-height:auto;max-width:3rem;padding:.35rem}.image--details{align-self:center;border:2rem solid #fefaf1;border:2rem solid var(--floral-white);border-radius:.75rem;justify-self:center;width:100%}.picture-recipeLink-container{align-self:center;text-align:center}.picture-recipeLink-container>img{margin-bottom:.5rem}.image--teaser{border:1rem solid #fefaf1;border:1rem solid var(--floral-white);min-height:10rem;width:100%}@media screen and (max-width:640px){.image--details{border:1rem solid #fefaf1;border:1rem solid var(--floral-white)}}@media screen and (max-width:810px){.image--details>a .image--details{margin-bottom:1rem}}section{border-radius:2.5rem;margin:2.5rem auto;max-width:70rem;padding:2.5rem}.section--cocktail{background-color:#ffca75;background-color:var(--maximum-yellow-red)}.section--food{background-color:#17c4b3;background-color:var(--tiffany-blue)}.section--movie{background-color:#227b9b;background-color:var(--cg-blue)}@media screen and (max-width:640px){section{border-radius:1.5rem;margin:1rem;padding:1rem}section--cocktail{display:flex;flex-direction:column}}@media screen and (max-width:811px) and (min-width:640px){section{margin:2.5rem 3rem;padding:2.5rem}}@media screen and (min-width:811px){body{padding:0 5rem}}button{background-color:#fe6c71;background-color:var(--light-coral);border:2px solid #fefaf1;border:2px solid var(--floral-white);border-radius:1rem;color:#fefaf1;color:var(--floral-white);margin-top:2rem;padding:1rem}.button--toTop{background:none;border-radius:50%;bottom:0;padding:0;position:absolute;right:0}.button--toTop:before{content:"↑";display:inline-block;font-size:3rem;height:3rem;width:3rem}.button--container{align-items:center;display:flex;gap:2rem;justify-content:center}.button--container button{width:-moz-fit-content;width:fit-content}.button--clearWatchlist{background-color:grey;margin:1rem auto}.secondary{background-color:grey}.button--details,.button--details--show,.button--watchlist,.button--watchlist--show{background:none;border:none;margin-left:.5rem;margin-top:0;position:relative}.button--details--show:before,.button--details:before,.button--watchlist--show:before,.button--watchlist:before{background-color:#fefaf1;background-color:var(--floral-white);content:" ";display:inline-block;height:3px;left:0;position:absolute;transform:rotate(45deg);width:20px}.button--details--show:after,.button--details:after,.button--watchlist--show:after,.button--watchlist:after{background-color:#fefaf1;background-color:var(--floral-white);content:" ";display:inline-block;height:3px;position:absolute;right:0;transform:rotate(-45deg);width:20px}.button--details--show:after{transform:rotate(45deg)}.button--details--show:after,.button--details--show:before{background-color:#fe6c71;background-color:var(--light-coral)}.button--details--show:before{transform:rotate(-45deg)}.button--watchlist--remove{background:none;border:none;margin-top:0;padding:.5rem}@font-face{font-display:swap;font-family:Epilogue;font-style:normal;font-weight:400;src:url(../assets/fonts/epilogue/epilogue-v13-latin-regular.woff2) format("woff2"),url(../assets/fonts/epilogue/epilogue-v13-latin-regular.woff) format("woff")}@font-face{font-display:swap;font-family:Epilogue;font-style:normal;font-weight:700;src:url(../assets/fonts/epilogue/epilogue-v13-latin-700.woff2) format("woff2"),url(../assets/fonts/epilogue/epilogue-v13-latin-700.woff) format("woff")}@font-face{font-display:swap;font-family:Sora;font-style:normal;font-weight:300;src:url(../assets/fonts/sora/sora-v11-latin-300.woff2) format("woff2"),url(../assets/fonts/sora/sora-v11-latin-300.woff) format("woff")}@font-face{font-display:swap;font-family:Sora;font-style:normal;font-weight:400;src:url(../assets/fonts/sora/sora-v11-latin-regular.woff2) format("woff2"),url(../assets/fonts/sora/sora-v11-latin-regular.woff) format("woff")}@font-face{font-display:swap;font-family:Sora;font-style:normal;font-weight:700;src:url(../assets/fonts/sora/sora-v11-latin-700.woff2) format("woff2"),url(../assets/fonts/sora/sora-v11-latin-700.woff) format("woff")}body{background-color:#fefaf1;background-color:var(--floral-white);font-family:Epilogue,sans-serif;width:100%}h1,h2,h3,h4{font-family:Sora,sans-serif}h1{color:#fe6c71;color:var(--light-coral);font-size:3rem;font-weight:800;text-align:center}h2{margin-top:0;text-align:center}h2,h3{color:#fefaf1;color:var(--floral-white);font-size:2rem}h4,h5,h6{color:#353b41;color:var(--onyx)}.h2--cocktail,.h2--food,.h2--movie{border-bottom:.25rem solid #fefaf1;border-bottom:.25rem solid var(--floral-white);color:#fefaf1;color:var(--floral-white);font-weight:700}.no-recipe--notification{font-size:1.5rem;padding-top:2rem;text-align:center}a:hover,button:hover,input:hover,label:hover,select:hover{cursor:pointer}a{border-bottom:.25rem solid #fefaf1;border-bottom:.25rem solid var(--floral-white);color:#fefaf1;color:var(--floral-white);font-weight:700;text-decoration:none}a:hover{border-bottom:.25rem solid #fe6c71;border-bottom:.25rem solid var(--light-coral)}header{display:flex}header h3{word-wrap:break-word;max-width:85%}@media screen and (min-width:811px){header h3{margin-bottom:0}.selectionDetails h3,header h3{font-size:3rem;margin-top:0}}
+@charset "UTF-8";
+:root {
+  --cultured: hsla(210, 17%, 98%, 1);
+  --cultured-2: hsla(210, 16%, 93%, 1);
+  --gainsboro: hsla(210, 14%, 89%, 1);
+  --light-gray: hsla(210, 14%, 83%, 1);
+  --cadet-blue-crayola: hsla(210, 11%, 71%, 1);
+  --sonic-silver: hsla(208, 7%, 46%, 1);
+  --davys-grey: hsla(210, 9%, 31%, 1);
+  --onyx: hsla(210, 10%, 23%, 1);
+  --eerie-black: hsla(210, 11%, 15%, 1);
+  --cg-blue: hsla(196, 64%, 37%, 1);
+  --tiffany-blue: hsla(174, 79%, 43%, 1);
+  --maximum-yellow-red: hsla(37, 100%, 73%, 1);
+  --floral-white: hsla(40, 88%, 97%, 1);
+  --light-coral: hsla(358, 99%, 71%, 1);
+}
+
+/* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*
+Document
+========
+*/
+/**
+Use a better box model (opinionated).
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+1. Correct the line height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size (opinionated).
+*/
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 3 */
+}
+
+/*
+Sections
+========
+*/
+/**
+1. Remove the margin in all browsers.
+2. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+*/
+body {
+  margin: 0; /* 1 */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; /* 2 */
+}
+
+/*
+Grouping content
+================
+*/
+/**
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+*/
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+}
+
+/*
+Text-level semantics
+====================
+*/
+/**
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/**
+Add the correct font weight in Edge and Safari.
+*/
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+/**
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+}
+
+/*
+Forms
+=====
+*/
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+button,
+select {
+  text-transform: none;
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+Remove the inner border and padding in Firefox.
+*/
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+Restore the focus styles unset by the previous rule.
+*/
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+Remove the additional ':invalid' styles in Firefox.
+See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+*/
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+legend {
+  padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+progress {
+  vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+/*
+Add the correct display in Chrome and Safari.
+*/
+summary {
+  display: list-item;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: 1fr 65%;
+}
+
+.dl--food {
+  grid-template-columns: 1fr 1fr;
+}
+.dl--film {
+  grid-template-columns: 1fr 80%;
+}
+.dl--ratings {
+  grid-template-columns: 1fr 40%;
+}
+
+dd {
+  margin: 0;
+  padding-left: 1em;
+}
+
+dt {
+  color: hsla(210, 10%, 23%, 1);
+  color: var(--onyx);
+  font-weight: bold;
+}
+
+dl dd {
+  margin-bottom: 1em;
+}
+
+label {
+  margin-right: 1rem;
+}
+
+input {
+  margin-left: 0.25rem;
+}
+
+input[type=search] {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 1rem auto;
+}
+.container--input--watchlist {
+  display: flex;
+  justify-content: flex-start;
+}
+.container--watchlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.watchlist--ul {
+  padding-left: 0;
+}
+.watchlist--li {
+  border: 1px solid hsla(40, 88%, 97%, 1);
+  border: 1px solid var(--floral-white);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.watchlist--li h4 {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  margin-left: 1rem;
+}
+
+.p--inputs {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+}
+
+.movie--input {
+  border: none;
+}
+
+select,
+.movie--input {
+  background-color: hsla(40, 88%, 97%, 1);
+  background-color: var(--floral-white);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  color: hsla(210, 10%, 23%, 1);
+  color: var(--onyx);
+  height: 3rem;
+  width: 12rem;
+}
+
+@media screen and (max-width: 811px) {
+  .dl--drinksIngrediants {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dl--film {
+    grid-template-columns: 1fr 75%;
+  }
+  .dl--ratings {
+    grid-template-columns: 1fr 30%;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .container form {
+    width: 100%;
+  }
+  .movie--input {
+    border: none;
+  }
+  select,
+.movie--input {
+    width: 100%;
+  }
+}
+.filmTeaser-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.filmTeaser-wrapper :nth-last-child(2) {
+  margin-bottom: 5rem;
+}
+.filmTeaser-wrapper .article--teaser {
+  background-color: grey;
+  max-width: 300px;
+  border: 2px solid hsla(40, 88%, 97%, 1);
+  border: 2px solid var(--floral-white);
+  padding: 1rem;
+  border-radius: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.filmTeaser-wrapper .article--teaser .img--teaser {
+  width: 100%;
+}
+.filmTeaser-wrapper .article--teaser .button-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-self: flex-end;
+  justify-content: center;
+}
+
+@media screen and (max-width: 985px) {
+  .container {
+    width: 100%;
+  }
+}
+.view--randomSelection {
+  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-column-gap: 2rem;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+
+.selectionDetails {
+  align-self: center;
+}
+
+.article--cocktail, .article--food, .article--teaser, .article--movie {
+  border-top: 1px solid hsla(40, 88%, 97%, 1);
+  border-top: 1px solid var(--floral-white);
+  align-items: center;
+}
+.article--cocktail--header, .article--food--header, .article--teaser--header, .article--movie--header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+@media screen and (max-width: 811px) {
+  .view--randomSelection {
+    display: block;
+  }
+}
+.image--icon {
+  max-width: 3rem;
+  max-height: auto;
+  margin-right: 1rem;
+  border: solid 1px hsla(40, 88%, 97%, 1);
+  border: solid 1px var(--floral-white);
+  border-radius: 1rem;
+  background-color: hsla(40, 88%, 97%, 1);
+  background-color: var(--floral-white);
+  padding: 0.35rem;
+}
+
+.image--details {
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  border: solid 2rem hsla(40, 88%, 97%, 1);
+  border: solid 2rem var(--floral-white);
+  border-radius: 0.75rem;
+}
+
+.picture-recipeLink-container {
+  align-self: center;
+  text-align: center;
+}
+.picture-recipeLink-container > img {
+  margin-bottom: 0.5rem;
+}
+
+.image--teaser {
+  border: solid 1rem hsla(40, 88%, 97%, 1);
+  border: solid 1rem var(--floral-white);
+  width: 100%;
+  min-height: 10rem;
+}
+
+@media screen and (max-width: 640px) {
+  .image--details {
+    border: solid 1rem hsla(40, 88%, 97%, 1);
+    border: solid 1rem var(--floral-white);
+  }
+}
+@media screen and (max-width: 810px) {
+  .image--details > a .image--details {
+    margin-bottom: 1rem;
+  }
+}
+section {
+  padding: 2.5rem;
+  margin: 2.5rem auto;
+  border-radius: 2.5rem;
+  max-width: 70rem;
+}
+
+.section--cocktail {
+  background-color: hsla(37, 100%, 73%, 1);
+  background-color: var(--maximum-yellow-red);
+}
+.section--food {
+  background-color: hsla(174, 79%, 43%, 1);
+  background-color: var(--tiffany-blue);
+}
+.section--movie {
+  background-color: hsla(196, 64%, 37%, 1);
+  background-color: var(--cg-blue);
+}
+
+@media screen and (max-width: 640px) {
+  section {
+    padding: 1rem 1rem;
+    margin: 1rem 1rem;
+    border-radius: 1.5rem;
+  }
+  section--cocktail {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 811px) and (min-width: 640px) {
+  section {
+    padding: 2.5rem;
+    margin: 2.5rem 3rem;
+  }
+}
+@media screen and (min-width: 811px) {
+  body {
+    padding: 0rem 5rem;
+  }
+}
+button {
+  padding: 1rem;
+  background-color: hsla(358, 99%, 71%, 1);
+  background-color: var(--light-coral);
+  border: solid 2px hsla(40, 88%, 97%, 1);
+  border: solid 2px var(--floral-white);
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.button--toTop {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0;
+  border-radius: 50%;
+}
+.button--toTop::before {
+  content: "↑";
+  display: inline-block;
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+}
+.button--container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+.button--container button {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.button--clearWatchlist {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: grey;
+}
+
+.secondary {
+  background-color: grey;
+}
+
+.button--details,
+.button--watchlist,
+.button--details--show,
+.button--watchlist--show {
+  position: relative;
+  border: none;
+  background: none;
+  margin-top: 0;
+  margin-left: 0.5rem;
+}
+.button--details::before,
+.button--watchlist::before,
+.button--details--show::before,
+.button--watchlist--show::before {
+  content: " ";
+  display: inline-block;
+  height: 3px;
+  width: 20px;
+  background-color: hsla(40, 88%, 97%, 1);
+  background-color: var(--floral-white);
+  transform: rotate(45deg);
+  position: absolute;
+  left: 0;
+}
+.button--details::after,
+.button--watchlist::after,
+.button--details--show::after,
+.button--watchlist--show::after {
+  content: " ";
+  display: inline-block;
+  height: 3px;
+  width: 20px;
+  background-color: hsla(40, 88%, 97%, 1);
+  background-color: var(--floral-white);
+  transform: rotate(-45deg);
+  position: absolute;
+  right: 0;
+}
+
+.button--details--show::after,
+.button--watchlist--show::after {
+  transform: rotate(45deg);
+  background-color: hsla(358, 99%, 71%, 1);
+  background-color: var(--light-coral);
+}
+.button--details--show::before,
+.button--watchlist--show::before {
+  transform: rotate(-45deg);
+  background-color: hsla(358, 99%, 71%, 1);
+  background-color: var(--light-coral);
+}
+
+.button--watchlist--remove {
+  background: none;
+  margin-top: 0;
+  border: none;
+}
+.button--watchlist--remove img {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: hsla(358, 99%, 71%, 1);
+  background-color: var(--light-coral);
+}
+.button--watchlist--remove:hover img {
+  border: 2px solid hsla(40, 88%, 97%, 1);
+  border: 2px solid var(--floral-white);
+}
+
+/****************************** epilogue-regular - latin **************************/
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/epilogue/epilogue-v13-latin-regular.woff2") format("woff2"), url("../assets/fonts/epilogue/epilogue-v13-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* epilogue-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/epilogue/epilogue-v13-latin-700.woff2") format("woff2"), url("../assets/fonts/epilogue/epilogue-v13-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/*************************** sora-300 - latin ********************************/
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fonts/sora/sora-v11-latin-300.woff2") format("woff2"), url("../assets/fonts/sora/sora-v11-latin-300.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* sora-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/sora/sora-v11-latin-regular.woff2") format("woff2"), url("../assets/fonts/sora/sora-v11-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* sora-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/sora/sora-v11-latin-700.woff2") format("woff2"), url("../assets/fonts/sora/sora-v11-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+body {
+  font-family: "Epilogue", sans-serif;
+  width: 100%;
+  background-color: hsla(40, 88%, 97%, 1);
+  background-color: var(--floral-white);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sora", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: hsla(358, 99%, 71%, 1);
+  color: var(--light-coral);
+  font-weight: 800;
+}
+
+h2 {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0px;
+}
+
+h3 {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  font-size: 2rem;
+}
+
+h4,
+h5,
+h6 {
+  color: hsla(210, 10%, 23%, 1);
+  color: var(--onyx);
+}
+
+.h2--cocktail {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  font-weight: bold;
+  border-bottom: solid 0.25rem hsla(40, 88%, 97%, 1);
+  border-bottom: solid 0.25rem var(--floral-white);
+}
+
+.h2--food {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  font-weight: bold;
+  border-bottom: solid 0.25rem hsla(40, 88%, 97%, 1);
+  border-bottom: solid 0.25rem var(--floral-white);
+}
+
+.h2--movie {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  font-weight: bold;
+  border-bottom: solid 0.25rem hsla(40, 88%, 97%, 1);
+  border-bottom: solid 0.25rem var(--floral-white);
+}
+
+.no-recipe--notification {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+a:hover,
+button:hover,
+select:hover,
+input:hover,
+label:hover {
+  cursor: pointer;
+}
+
+a {
+  color: hsla(40, 88%, 97%, 1);
+  color: var(--floral-white);
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: solid 0.25rem hsla(40, 88%, 97%, 1);
+  border-bottom: solid 0.25rem var(--floral-white);
+}
+a:hover {
+  border-bottom: solid 0.25rem hsla(358, 99%, 71%, 1);
+  border-bottom: solid 0.25rem var(--light-coral);
+}
+
+header {
+  display: flex;
+}
+
+header h3 {
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+@media screen and (min-width: 811px) {
+  header h3 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .selectionDetails h3 {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
