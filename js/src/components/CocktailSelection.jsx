@@ -7,7 +7,7 @@ const cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/';
 export default function CocktailSelection({ searchParams, setSearchParams }) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('Ordinary Drink');
-  const [drinkDetails, setDrinkDetails] = useState([]);
+  const [drinkDetails, setDrinkDetails] = useState(null);
 
   const drinkId = searchParams.get('dID');
 
@@ -94,11 +94,11 @@ export default function CocktailSelection({ searchParams, setSearchParams }) {
           </select>
         </div>
 
-        {drinkDetails.idDrink && <RandomCocktail drinkDetails={drinkDetails} />}
+        {drinkDetails && <RandomCocktail drinkDetails={drinkDetails} />}
 
         <div className="button--container">
           <button onClick={getACocktail}>
-            {drinkId === null ? 'get a drink' : 'roll again'}
+            {!drinkDetails ? 'get a drink' : 'roll again'}
           </button>
         </div>
       </section>

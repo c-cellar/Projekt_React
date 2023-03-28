@@ -23,9 +23,9 @@ export default function FilmTeaser({
           ) : (
             <p>There is no film poster for: {Title}</p>
           )}
-          <h3>
+          <h4>
             {Title} ({Year && <time dateTime={Year}>{Year}</time>})
-          </h3>
+          </h4>
           <div className="button-wrapper">
             {watchList.some((film) => film.id === imdbID) ? (
               <button
