@@ -26,16 +26,18 @@ export default function Watchlist({
           </li>
         )}
       </ul>
-      <button
-        className="button--clearWatchlist"
-        aria-label="clear watchlist"
-        onClick={() => {
-          watchListDispatch({ action: 'clear' });
-          setMovieDetails(null);
-        }}
-      >
-        clear watchlist
-      </button>
+      {watchList.length > 0 && (
+        <button
+          aria-label="clear watchlist"
+          className="button--clearWatchlist"
+          onClick={() => {
+            watchListDispatch({ action: 'clear' });
+            setMovieDetails(null);
+          }}
+        >
+          clear watchlist
+        </button>
+      )}
     </div>
   );
 }

@@ -213,7 +213,7 @@ export default function Movie({ searchParams, setSearchParams }) {
             disabled={watchList.length === 0 ? true : false}
             onClick={() => getRandomFilmFromWatchlist(watchList, setMovieId)}
           >
-            {movieDetails === null ? 'get a film' : 'roll again'}
+            {!movieDetails ? 'get a film' : 'roll again'}
           </button>
         </div>
       </section>
