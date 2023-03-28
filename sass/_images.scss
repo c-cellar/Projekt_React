@@ -29,13 +29,12 @@
     border-top-left-radius: 0.75rem;
     width: 100%;
   }
-}
 
-.picture-recipeLink-container {
-  align-self: center;
-  text-align: center;
-  > img {
-    margin-bottom: 0.5rem;
+  &--watchlist {
+    width: 100px;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-right: 2px solid var(--floral-white);
   }
 }
 
@@ -46,9 +45,15 @@
     }
   }
 
-  .image--details--movie {
-    width: 300px;
-    border-radius: 0.75rem;
-    border: solid 2rem var(--floral-white);
+  .image {
+    &--details {
+      width: 350px;
+
+      &--movie {
+        width: 300px;
+        border-radius: 0.75rem;
+        border: solid 2rem var(--floral-white);
+      }
+    }
   }
 }

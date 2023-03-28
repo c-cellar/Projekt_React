@@ -11,6 +11,7 @@ export default function FoodDetails({ recipe }) {
     vegan,
     glutenFree,
     dairyFree,
+    spoonacularSourceUrl,
   } = recipe;
 
   return (
@@ -38,6 +39,11 @@ export default function FoodDetails({ recipe }) {
           extendedIngredients.map(({ name, id, amount }) => (
             <dd key={[id, amount]}>{name}</dd>
           ))}
+        <dd>
+          <a href={spoonacularSourceUrl} target="blank">
+            Go to recipe
+          </a>
+        </dd>
       </dl>
     </div>
   );
