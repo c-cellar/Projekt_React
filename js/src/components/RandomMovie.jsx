@@ -11,7 +11,7 @@ export default function RandomMovie({
     <article className="view--randomSelection article--movie">
       {Poster && (
         <img
-          className="image--details"
+          className="image--details--movie"
           src={Poster}
           alt={`Poster of ${Title}`}
         />
