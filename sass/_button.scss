@@ -10,7 +10,7 @@ button {
 .button {
   &--toTop {
     position: fixed;
-    right: 1rem;
+    right: 1.5rem;
     bottom: 1rem;
     padding: 0;
     border-radius: 50%;
@@ -21,6 +21,23 @@ button {
       font-size: 3rem;
       width: 3rem;
       height: 3rem;
+    }
+  }
+
+  &--watchlist--remove {
+    background: none;
+    margin-top: 0;
+    border: none;
+    padding: 0;
+
+    :is(img) {
+      padding: 0.5rem;
+      border-radius: 50%;
+      background-color: var(--light-coral);
+    }
+
+    &:hover :is(img) {
+      border: 2px solid var(--floral-white);
     }
   }
 
@@ -38,7 +55,6 @@ button {
   &--clearWatchlist {
     margin-block: 1rem;
     margin-inline: auto;
-    background-color: grey;
   }
 }
 
@@ -69,6 +85,7 @@ button {
     transform: rotate(45deg);
     position: absolute;
     left: 0;
+    transition: all 0.25s ease-in-out;
   }
 
   &::after {
@@ -80,6 +97,7 @@ button {
     transform: rotate(-45deg);
     position: absolute;
     right: 0;
+    transition: all 0.25s ease-in-out;
   }
 }
 
@@ -88,26 +106,12 @@ button {
   &::after {
     transform: rotate(45deg);
     background-color: var(--light-coral);
+    transition: all 0.25s ease-in-out;
   }
 
   &::before {
     transform: rotate(-45deg);
     background-color: var(--light-coral);
-  }
-}
-
-.button--watchlist--remove {
-  background: none;
-  margin-top: 0;
-  border: none;
-
-  :is(img) {
-    padding: 0.5rem;
-    border-radius: 50%;
-    background-color: var(--light-coral);
-  }
-
-  &:hover :is(img) {
-    border: 2px solid var(--floral-white);
+    transition: all 0.25s ease-in-out;
   }
 }
