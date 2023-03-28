@@ -74,35 +74,33 @@ export default function CocktailSelection({ searchParams, setSearchParams }) {
   }, [drinkId]);
 
   return (
-    <div>
-      <section className="section--cocktail">
-        <h2>
-          <span className="h2--cocktail">Drinks</span>
-        </h2>
-        <div className="container">
-          <p className="p--inputs">Choose your kind of drink</p>
-          <select
-            id="cocktail_category"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.currentTarget.value)}
-          >
-            {categories.map(({ strCategory }) => (
-              <option value={strCategory} key={strCategory}>
-                {strCategory}
-              </option>
-            ))}
-          </select>
-        </div>
+    <section className="section--cocktail">
+      <h2>
+        <span className="h2--cocktail">Drinks</span>
+      </h2>
+      <div className="container">
+        <p className="p--inputs">Choose your kind of drink</p>
+        <select
+          id="cocktail_category"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.currentTarget.value)}
+        >
+          {categories.map(({ strCategory }) => (
+            <option value={strCategory} key={strCategory}>
+              {strCategory}
+            </option>
+          ))}
+        </select>
+      </div>
 
-        {drinkDetails && <RandomCocktail drinkDetails={drinkDetails} />}
+      {drinkDetails && <RandomCocktail drinkDetails={drinkDetails} />}
 
-        <div className="button--container">
-          <button onClick={getACocktail}>
-            {!drinkDetails ? 'get a drink' : 'roll again'}
-          </button>
-        </div>
-      </section>
-    </div>
+      <div className="button--container">
+        <button onClick={getACocktail}>
+          {!drinkDetails ? 'get a drink' : 'roll again'}
+        </button>
+      </div>
+    </section>
   );
 }
 

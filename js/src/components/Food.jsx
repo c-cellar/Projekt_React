@@ -76,38 +76,36 @@ export default function Food({ searchParams, setSearchParams }) {
   }
 
   return (
-    <div>
-      <section className="section--food">
-        <h2>
-          <span className="h2--food">Food</span>
-        </h2>
-        {/* Diet */}
-        <FoodDiet setSearchTags={setSearchTags} />
-        {/* Meal Types */}
-        <FoodMealTypes setSearchTags={setSearchTags} />
-        {/* Cuisines */}
-        <FoodCuisines setSearchTags={setSearchTags} />
+    <section className="section--food">
+      <h2>
+        <span className="h2--food">Food</span>
+      </h2>
+      {/* Diet */}
+      <FoodDiet setSearchTags={setSearchTags} />
+      {/* Meal Types */}
+      <FoodMealTypes setSearchTags={setSearchTags} />
+      {/* Cuisines */}
+      <FoodCuisines setSearchTags={setSearchTags} />
 
-        <RandomFood recipe={recipe} />
+      <RandomFood recipe={recipe} />
 
-        {recipe !== undefined ? (
-          ''
-        ) : (
-          <div className="no-recipe--notification">
-            <p>
-              <strong>Sorry!!</strong> <br /> No recipe was found! Please change
-              your selections.
-            </p>
-          </div>
-        )}
-
-        <div className="button--container">
-          <button onClick={fetchQuery}>
-            {!recipe ? 'get a meal' : 'roll again'}
-          </button>
+      {recipe !== undefined ? (
+        ''
+      ) : (
+        <div className="no-recipe--notification">
+          <p>
+            <strong>Sorry!!</strong> <br /> No recipe was found! Please change
+            your selections.
+          </p>
         </div>
-      </section>
-    </div>
+      )}
+
+      <div className="button--container">
+        <button onClick={fetchQuery}>
+          {!recipe ? 'get a meal' : 'roll again'}
+        </button>
+      </div>
+    </section>
   );
 }
 
