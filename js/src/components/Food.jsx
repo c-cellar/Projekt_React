@@ -22,7 +22,7 @@ export default function Food({ searchParams, setSearchParams }) {
   };
 
   const [searchTags, setSearchTags] = useReducer(createSearchTag, selections);
-  const [recipe, setRecipe] = useState([]);
+  const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
     async function getRecipeById() {
@@ -103,7 +103,7 @@ export default function Food({ searchParams, setSearchParams }) {
 
         <div className="button--container">
           <button onClick={fetchQuery}>
-            {recipe ? 'get a meal' : 'roll again'}
+            {!recipe ? 'get a meal' : 'roll again'}
           </button>
         </div>
       </section>
