@@ -7,10 +7,12 @@ export default function Watchlist({
 }) {
   return (
     <div className="container--watchlist">
+      <h3>watchlist</h3>
       <ul className="watchlist--ul">
         {watchList.length > 0 ? (
-          watchList.map(({ id, title }) => (
+          watchList.map(({ id, title, poster }) => (
             <li className="watchlist--li" key={id}>
+              <img className="image--watchlist" src={poster} alt="Filmposter" />
               <h4>{title}</h4>
               <button
                 className="button--watchlist--remove"

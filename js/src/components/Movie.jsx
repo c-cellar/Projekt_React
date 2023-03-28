@@ -54,11 +54,11 @@ function useGetFilmFromUserInput(searchUserInput, setResultsUserInput) {
 }
 
 function watchListReducer(watchList, message) {
-  const { id, title, type } = message;
+  const { id, title, type, poster } = message;
 
   switch (message.action) {
     case 'add':
-      return [...watchList, { id, title, type }];
+      return [...watchList, { id, title, type, poster }];
     case 'remove':
       return watchList.filter((watchlist) => watchlist.id !== message.id);
     case 'clear':
@@ -121,102 +121,102 @@ export default function Movie({ searchParams, setSearchParams }) {
   useGetFilmFromUserInput(searchUserInput, setResultsUserInput);
 
   return (
-    <div>
-      <section className="section--movie">
-        <h2>
-          <span className="h2--movie">Movie</span>
-        </h2>
+    <section className="section--movie">
+      <h2>
+        <span className="h2--movie">Movie</span>
+      </h2>
 
-        {/* search film and add to watchlist */}
-        <div className="container">
-          <div className="container--input--watchlist">
-            <p className="p--inputs">add film to personal watchlist</p>
-            <button
-              className={`button--watchlist${showWatchlist ? '--show' : ''}`}
-              onClick={() => setShowWatchlist(!showWatchlist)}
-            ></button>
-          </div>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="search" hidden>
-              title
-            </label>
-            <input
-              id="search"
-              type="search"
-              value={searchUserInput}
-              onChange={(e) => setSearchUserInput(e.target.value)}
-              placeholder="search for film..."
-              className="movie--input"
-            />
-          </form>
-        </div>
-
-        {showWatchlist && (
-          <Watchlist
-            watchList={watchList}
-            watchListDispatch={watchListDispatch}
-            setMovieDetails={setMovieDetails}
-          />
-        )}
-
-        {!(resultsUserInput.length === 0) && (
-          <FilmTeaser
-            resultsUserInput={resultsUserInput}
-            watchListDispatch={watchListDispatch}
-            watchList={watchList}
-          />
-        )}
-
-        {movieDetails && (
-          <RandomMovie
-            movieDetails={movieDetails}
-            showDetails={showDetails}
-            setShowDetails={setShowDetails}
-          />
-        )}
-
-        <div className="button--container">
-          {showDetails &&
-            (watchList.some((film) => film.id === movieId) ? (
-              <button
-                className="secondary"
-                aria-label={`remove ${movieDetails.Title} from watch list`}
-                onClick={() =>
-                  watchListDispatch({
-                    id: movieId,
-                    title: movieDetails.Title,
-                    type: movieDetails.Type,
-                    action: 'remove',
-                  })
-                }
-              >
-                remove
-              </button>
-            ) : (
-              <button
-                className="secondary"
-                aria-label={`add ${movieDetails.Title} to watch list`}
-                onClick={() =>
-                  watchListDispatch({
-                    id: movieId,
-                    title: movieDetails.Title,
-                    type: movieDetails.Type,
-                    action: 'add',
-                  })
-                }
-              >
-                add to watchlist
-              </button>
-            ))}
-
+      {/* search film and add to watchlist */}
+      <div className="container">
+        <div className="container--input--watchlist">
+          <p className="p--inputs">add film to personal watchlist</p>
           <button
-            disabled={watchList.length === 0 ? true : false}
-            onClick={() => getRandomFilmFromWatchlist(watchList, setMovieId)}
-          >
-            {!movieDetails ? 'get a film' : 'roll again'}
-          </button>
+            className={`button--watchlist${showWatchlist ? '--show' : ''}`}
+            onClick={() => setShowWatchlist(!showWatchlist)}
+          ></button>
         </div>
-      </section>
-    </div>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <label htmlFor="search" hidden>
+            title
+          </label>
+          <input
+            id="search"
+            type="search"
+            value={searchUserInput}
+            onChange={(e) => setSearchUserInput(e.target.value)}
+            placeholder="search for film..."
+            className="movie--input"
+          />
+        </form>
+      </div>
+
+      {showWatchlist && (
+        <Watchlist
+          watchList={watchList}
+          watchListDispatch={watchListDispatch}
+          setMovieDetails={setMovieDetails}
+        />
+      )}
+
+      {!(resultsUserInput.length === 0) && (
+        <FilmTeaser
+          resultsUserInput={resultsUserInput}
+          watchListDispatch={watchListDispatch}
+          watchList={watchList}
+        />
+      )}
+
+      {movieDetails && (
+        <RandomMovie
+          movieDetails={movieDetails}
+          showDetails={showDetails}
+          setShowDetails={setShowDetails}
+        />
+      )}
+
+      <div className="button--container">
+        {showDetails &&
+          (watchList.some((film) => film.id === movieId) ? (
+            <button
+              className="secondary"
+              aria-label={`remove ${movieDetails.Title} from watch list`}
+              onClick={() =>
+                watchListDispatch({
+                  id: movieId,
+                  title: movieDetails.Title,
+                  type: movieDetails.Type,
+                  poster: movieDetails.Poster,
+                  action: 'remove',
+                })
+              }
+            >
+              remove
+            </button>
+          ) : (
+            <button
+              className="secondary"
+              aria-label={`add ${movieDetails.Title} to watch list`}
+              onClick={() =>
+                watchListDispatch({
+                  id: movieId,
+                  title: movieDetails.Title,
+                  type: movieDetails.Type,
+                  poster: movieDetails.Poster,
+                  action: 'add',
+                })
+              }
+            >
+              add to watchlist
+            </button>
+          ))}
+
+        <button
+          disabled={watchList.length === 0 ? true : false}
+          onClick={() => getRandomFilmFromWatchlist(watchList, setMovieId)}
+        >
+          {!movieDetails ? 'get a film' : 'roll again'}
+        </button>
+      </div>
+    </section>
   );
 }

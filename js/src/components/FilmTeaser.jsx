@@ -35,6 +35,7 @@ export default function FilmTeaser({
                     id: imdbID,
                     title: Title,
                     type: Type,
+                    poster: Poster,
                     action: 'remove',
                   })
                 }
@@ -49,6 +50,7 @@ export default function FilmTeaser({
                     id: imdbID,
                     title: Title,
                     type: Type,
+                    poster: Poster,
                     action: 'add',
                   })
                 }

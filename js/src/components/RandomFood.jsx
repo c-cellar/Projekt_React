@@ -5,18 +5,11 @@ export default function RandomFood({ recipe }) {
     return null;
   }
 
-  const { image, spoonacularSourceUrl } = recipe;
+  const { image } = recipe;
 
   return (
     <article className="view--randomSelection article--food">
-      <div className="picture-recipeLink-container">
-        {image && <img className="image--details" src={image} alt="Meal" />}
-        {spoonacularSourceUrl && (
-          <a href={spoonacularSourceUrl} target="blank">
-            Go to recipe
-          </a>
-        )}
-      </div>
+      {image && <img className="image--details" src={image} alt="Meal" />}
       <FoodDetails recipe={recipe} />
     </article>
   );
