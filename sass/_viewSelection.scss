@@ -12,7 +12,6 @@
 .article {
   &--cocktail,
   &--food,
-  &--teaser,
   &--movie {
     border-top: 1px solid var(--floral-white);
     align-items: center;
@@ -20,14 +19,44 @@
     &--header {
       display: flex;
       flex-wrap: wrap;
+      width: 100%;
       justify-content: space-between;
       height: fit-content;
     }
   }
+
+  &--teaser {
+    width: 250px;
+    background-color: var(--sonic-silver);
+    border: 2px solid var(--floral-white);
+    border-radius: 0.75rem;
+    height: fit-content;
+
+    h4 {
+      color: var(--floral-white);
+      margin-left: 0.25rem;
+    }
+
+    & :is(.button-wrapper) {
+      display: flex;
+      align-self: flex-end;
+      justify-content: center;
+      margin-top: 0;
+      margin-bottom: 1rem;
+
+      button {
+        margin-top: 0;
+        padding: 0.5rem;
+        border-radius: 0.75rem;
+      }
+    }
+  }
 }
 
-@media screen and (max-width: 811px) {
+@media screen and (max-width: 1024px) {
   .view--randomSelection {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
   }
 }

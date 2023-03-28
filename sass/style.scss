@@ -94,11 +94,12 @@ header :is(h3) {
   word-wrap: break-word;
 }
 
-@media screen and (min-width: 811px) {
+@media screen and (min-width: 1024px) {
   header :is(h3) {
     font-size: 3rem;
     margin-top: 0;
     margin-bottom: 0;
+    max-width: 85%;
   }
 
   .selectionDetails :is(h3) {

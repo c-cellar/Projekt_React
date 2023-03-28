@@ -21,8 +21,9 @@ section {
 
 @media screen and (max-width: 640px) {
   section {
-    padding: 1rem 1rem;
-    margin: 1rem 1rem;
+    padding: 1rem 0.3rem;
+    margin-block: 1rem;
+    margin-inline: 0.25rem;
     border-radius: 1.5rem;
 
     &--cocktail {
@@ -35,7 +36,7 @@ section {
 @media screen and (max-width: 811px) and (min-width: 640px) {
   section {
     padding: 2.5rem;
-    margin: 2.5rem 3rem;
+    margin: 1.5rem 1.25rem;
   }
 }
 
