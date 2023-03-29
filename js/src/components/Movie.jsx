@@ -194,7 +194,7 @@ export default function Movie({ searchParams, setSearchParams }) {
             </button>
           ) : (
             <button
-              className="secondary"
+              className="primary"
               aria-label={`add ${movieDetails.Title} to watch list`}
               onClick={() =>
                 watchListDispatch({
