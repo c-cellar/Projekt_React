@@ -46,6 +46,7 @@ export default function FilmTeaser({
             ) : (
               <button
                 aria-label={`add ${Title} to watch list`}
+                className={'primary'}
                 onClick={() =>
                   watchListDispatch({
                     id: imdbID,

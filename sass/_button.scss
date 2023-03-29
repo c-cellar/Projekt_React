@@ -1,8 +1,8 @@
 button {
   padding: 1rem;
-  background-color: var(--light-coral);
   border: solid 2px var(--floral-white);
   color: var(--floral-white);
+  background-color: var(--light-coral);
   border-radius: 1rem;
   margin-top: 2rem;
 }
@@ -58,12 +58,12 @@ button {
   }
 }
 
-// .primary {
-//   // background-color: ;
-// }
+.primary {
+  background-color: var(--light-coral);
+}
 
 .secondary {
-  background-color: grey;
+  background-color: var(--sonic-silver);
 }
 
 .button--details,
