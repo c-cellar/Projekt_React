@@ -14,11 +14,11 @@
     align-self: center;
     width: 100%;
     border-radius: 0.75rem;
-    border: solid 2rem var(--floral-white);
+    border: solid 5px var(--floral-white);
 
     &--movie {
       border-radius: 0.75rem;
-      border: solid 2rem var(--floral-white);
+      border: solid 5px var(--floral-white);
       width: 100%;
     }
   }
@@ -52,7 +52,7 @@
       &--movie {
         width: 300px;
         border-radius: 0.75rem;
-        border: solid 2rem var(--floral-white);
+        border: solid 5px var(--floral-white);
       }
     }
   }
