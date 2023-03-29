@@ -30,6 +30,7 @@ export default function FilmTeaser({
             {watchList.some((film) => film.id === imdbID) ? (
               <button
                 aria-label={`remove ${Title} from watch list`}
+                className={'secondary'}
                 onClick={() =>
                   watchListDispatch({
                     id: imdbID,
