@@ -68,6 +68,10 @@ function watchListReducer(watchList, message) {
   throw Error('Unknown action: ' + message.action);
 }
 
+function onEnter(e) {
+  if (e.key == 'Enter') e.target.blur();
+}
+
 export default function Movie({ searchParams, setSearchParams }) {
   const [movieId, setMovieId] = useState();
   const [movieDetails, setMovieDetails] = useState(null);
@@ -142,10 +146,12 @@ export default function Movie({ searchParams, setSearchParams }) {
           <input
             id="search"
             type="search"
-            value={searchUserInput}
-            onChange={(e) => setSearchUserInput(e.target.value)}
+            enterKeyHint="search"
             placeholder="search for film..."
             className="movie--input"
+            value={searchUserInput}
+            onChange={(e) => setSearchUserInput(e.target.value)}
+            onKeyUp={(e) => onEnter(e)}
           />
         </form>
       </div>
