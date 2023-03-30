@@ -2,6 +2,7 @@ import { useState, useReducer, useEffect } from 'react';
 import FoodCuisines from './FoodCuisines';
 import FoodDiet from './FoodDiet';
 import FoodMealTypes from './FoodMealTypes';
+import ModalFood from './ModalFood';
 import RandomFood from './RandomFood';
 
 // const apiKey = process.env.NEWS_API_KEY;
@@ -16,13 +17,14 @@ const foodUrl =
 
 export default function Food({ searchParams, setSearchParams }) {
   const selections = {
-    diet: '',
-    mealType: '',
-    cuisine: '',
+    diet: null,
+    mealType: null,
+    cuisine: null,
   };
 
   const [searchTags, setSearchTags] = useReducer(createSearchTag, selections);
   const [recipe, setRecipe] = useState(null);
+  const [modalFoodOpen, setModalFoodOpen] = useState(false);
 
   useEffect(() => {
     async function getRecipeById() {
@@ -43,7 +45,7 @@ export default function Food({ searchParams, setSearchParams }) {
 
         setRecipe(jsonData);
       } catch (error) {
-        console.log;
+        // console.log;
       }
     }
     getRecipeById();
@@ -51,7 +53,7 @@ export default function Food({ searchParams, setSearchParams }) {
 
   function fetchQuery() {
     async function fetchRecipe() {
-      const query = Object.values(searchTags).join(',');
+      const query = Object.values(searchTags).filter(Boolean).join(',');
 
       try {
         const response = await fetch(`${foodUrl}${query}`);
@@ -62,10 +64,15 @@ export default function Food({ searchParams, setSearchParams }) {
 
         const jsonData = await response.json();
 
+        console.log(jsonData.recipes.length);
+        if (jsonData.recipes.length <= 0) {
+          setModalFoodOpen(true);
+          throw new Error('Could not find a single recipe');
+        }
+
         const firstRandomRecipe = await jsonData.recipes[0];
 
         setRecipe(firstRandomRecipe);
-
         searchParams.set('rId', firstRandomRecipe.id);
         setSearchParams(searchParams);
       } catch (error) {
@@ -89,16 +96,7 @@ export default function Food({ searchParams, setSearchParams }) {
 
       <RandomFood recipe={recipe} />
 
-      {recipe !== undefined ? (
-        ''
-      ) : (
-        <div className="no-recipe--notification">
-          <p>
-            <strong>Sorry!!</strong> <br /> No recipe was found! Please change
-            your selections.
-          </p>
-        </div>
-      )}
+      {modalFoodOpen && <ModalFood setModalFoodOpen={setModalFoodOpen} />}
 
       <div className="button--container">
         <button onClick={fetchQuery}>
