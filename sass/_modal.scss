@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  background-color: hsla(0, 0%, 50%, 0.4);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .modalContainer {
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--cg-blue);
+    border: 5px solid var(--floral-white);
+    border-radius: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-inline: 1rem;
+
+    h4,
+    p {
+      color: var(--floral-white);
+    }
+
+    button {
+      position: absolute;
+      top: -1.5rem;
+      right: 0.5rem;
+    }
+  }
+}

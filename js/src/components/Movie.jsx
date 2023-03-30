@@ -4,6 +4,7 @@ import { useDebouncedValue } from '../hooks/useDebouncedValue';
 import RandomMovie from './RandomMovie';
 import FilmTeaser from './FilmTeaser';
 import Watchlist from './Watchlist';
+import ModalFilm from './ModalFilm';
 
 const OMDd = 'https://www.omdbapi.com/?apikey=1d847164';
 
@@ -69,7 +70,7 @@ function watchListReducer(watchList, message) {
 }
 
 function onEnter(e) {
-  if (e.key == 'Enter') e.target.blur();
+  if (e.key == 'Enter' || e.keyCode == 13) e.target.blur();
 }
 
 export default function Movie({ searchParams, setSearchParams }) {
@@ -79,6 +80,7 @@ export default function Movie({ searchParams, setSearchParams }) {
   const [searchUserInput, setSearchUserInput] = useState('');
   const [resultsUserInput, setResultsUserInput] = useState([]);
   const [showWatchlist, setShowWatchlist] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [watchList, watchListDispatch] = useReducer(
     watchListReducer,
     null,
@@ -216,9 +218,17 @@ export default function Movie({ searchParams, setSearchParams }) {
             </button>
           ))}
 
+        {modalOpen && (
+          <ModalFilm modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        )}
+
         <button
-          disabled={watchList.length === 0 ? true : false}
-          onClick={() => getRandomFilmFromWatchlist(watchList, setMovieId)}
+          // disabled={watchList.length === 0 ? true : false}
+          onClick={() => {
+            if (watchList.length === 0) return setModalOpen(true);
+
+            getRandomFilmFromWatchlist(watchList, setMovieId);
+          }}
         >
           {!movieDetails ? 'get a film' : 'roll again'}
         </button>

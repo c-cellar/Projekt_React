@@ -6,6 +6,7 @@
 @use 'section';
 @use 'button';
 @use 'fonts';
+@use 'modal';
 
 body {
   font-family: 'Epilogue', sans-serif;
@@ -97,6 +98,7 @@ header :is(h3) {
 @media screen and (min-width: 1024px) {
   h1 {
     font-size: 5rem;
+    margin-top: 0;
   }
 
   header :is(h3) {
