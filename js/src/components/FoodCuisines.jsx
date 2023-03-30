@@ -9,10 +9,9 @@ export default function FoodCuisines({ setSearchTags }) {
         onChange={(e) => {
           setSearchTags({
             checked: e.currentTarget.willValidate,
-            value: e.currentTarget.value,
+            value: e.currentTarget.value == '' ? null : e.currentTarget.value,
             type: e.currentTarget.id,
           });
-          console.log(e.currentTarget);
         }}
       >
         <option value="">none</option>

@@ -10,7 +10,7 @@ export default function FoodDiet({ setSearchTags }) {
         onChange={(e) => {
           setSearchTags({
             checked: e.currentTarget.willValidate,
-            value: e.currentTarget.value,
+            value: e.currentTarget.value == '' ? null : e.currentTarget.value,
             type: e.currentTarget.id,
           });
         }}

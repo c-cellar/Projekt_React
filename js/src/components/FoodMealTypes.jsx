@@ -1,13 +1,15 @@
 export default function FoodMealTypes({ setSearchTags }) {
   return (
     <div className="container container--mealTypes">
-      <p className="p--inputs">Select a kind of meal</p>
+      <p className="p--inputs">
+        Select a kind of meal (none for random meal type)
+      </p>
       <select
         id="selectMealType"
         onChange={(e) => {
           setSearchTags({
             checked: e.currentTarget.willValidate,
-            value: e.currentTarget.value,
+            value: e.currentTarget.value == '' ? null : e.currentTarget.value,
             type: e.currentTarget.id,
           });
         }}
