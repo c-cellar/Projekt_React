@@ -13,16 +13,22 @@
   .modalContainer {
     width: fit-content;
     height: fit-content;
-    background-color: var(--cg-blue);
-    border: 5px solid var(--floral-white);
-    border-radius: 2rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     position: relative;
     margin-inline: 1rem;
+    border-radius: 2rem;
+    border: 5px solid var(--floral-white);
 
-    h4,
+    &.film {
+      background-color: var(--cg-blue);
+    }
+
+    &.food {
+      background-color: var(--tiffany-blue);
+    }
+
     p {
       color: var(--floral-white);
     }
