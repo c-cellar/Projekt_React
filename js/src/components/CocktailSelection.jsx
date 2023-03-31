@@ -76,7 +76,7 @@ export default function CocktailSelection({ searchParams, setSearchParams }) {
   return (
     <section className="section--cocktail">
       <h2>
-        <span className="h2--cocktail">Drinks</span>
+        <span className="h2--cocktail">Drink</span>
       </h2>
       <div className="container">
         <p className="p--inputs">Choose your kind of drink</p>

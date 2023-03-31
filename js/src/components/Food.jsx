@@ -85,7 +85,7 @@ export default function Food({ searchParams, setSearchParams }) {
   return (
     <section className="section--food">
       <h2>
-        <span className="h2--food">Food</span>
+        <span className="h2--food">Meal</span>
       </h2>
       {/* Diet */}
       <FoodDiet setSearchTags={setSearchTags} />
